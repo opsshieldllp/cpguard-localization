@@ -11,6 +11,11 @@
   "close": "Cerrar",
   "delete": "Eliminar",
   "and": "y",
+  "copy": "Copiar",
+  "track-activities": "Rastrear actividades",
+  "no-events": "No hay eventos disponibles.",
+  "clear": "Limpiar",
+  "more-actions": "más acciones",
   "common": {
     "type-here": "Escriba aquí",
     "select": "Seleccione",
@@ -112,7 +117,8 @@
       "title": "",
       "desc-scanner": "Las acciones se realizarán solo en los archivos correspondientes",
       "desc-protection": "Las filas seleccionadas se eliminarán de los registros de cPGuard",
-      "desc-cms": ""
+      "desc-cms": "",
+      "desc-backup-logs": "Las filas seleccionadas se eliminarán de los registros de copias de seguridad"
     }
   },
   "messages": { "delete-success": "Eliminado con éxito" },
@@ -592,7 +598,8 @@
     "english": "English",
     "spanish": "español",
     "portuguese": "Portugués",
-    "russian": "Русский"
+    "russian": "Русский",
+    "korean": "한국어"
   },
   "notifications": {
     "common": {
@@ -1200,14 +1207,56 @@
         "hasDesc": false,
         "description": {
           "title": "",
-          "content": "Please check and  update all required values in the standalone configuration file",
+          "content": "Verifique y actualice todos los valores requeridos en el archivo de configuración independiente",
           "link_to_kb": "https://opsshield.com/help/cpguard/cpguard-standalone-configuration/",
-          "link_text": "Learn more",
+          "link_text": "Aprende más",
           "action": "link"
         }
       },
       "waf_default": {
         "alert": "Las reglas de Waf no funcionan en el servidor. Compruebe la configuración de ModSecurity en el servidor"
+      },
+      "nginx_errors": {
+        "alert": "Se detectaron errores de Nginx.",
+        "color": "danger",
+        "icon": "ri-code-s-slash-fill",
+        "varaible": "false",
+        "hasDesc": true,
+        "description": {
+          "title": "Se detectaron errores de Nginx.",
+          "content": "Se detectaron errores de Nginx en los resultados del escaneo. Por favor, revise su configuración y registros de Nginx para más detalles.",
+          "link_to_kb": "https://opsshield.com/help/",
+          "link_text": "Aprende más",
+          "action": "false"
+        }
+      },
+      "fpm_errors": {
+        "alert": "Se detectaron errores de FPM.",
+        "color": "danger",
+        "icon": "ri-php-line",
+        "varaible": "false",
+        "hasDesc": true,
+        "description": {
+          "title": "Se detectaron errores de FPM.",
+          "content": "Se detectaron errores de FPM en los resultados del escaneo. Por favor, revise su configuración de FPM para más detalles.",
+          "link_to_kb": "https://opsshield.com/help/",
+          "link_text": "Aprende más",
+          "action": "false"
+        }
+      },
+      "apache_errors": {
+        "alert": "Se detectaron errores de Apache.",
+        "color": "danger",
+        "icon": "ri-terminal-box-line",
+        "varaible": "false",
+        "hasDesc": true,
+        "description": {
+          "title": "Se detectaron errores de Apache.",
+          "content": "Se detectaron errores de Apache en los resultados del escaneo. Por favor, revise su configuración de Apache para más detalles.",
+          "link_to_kb": "https://opsshield.com/help/",
+          "link_text": "Aprende más",
+          "action": "false"
+        }
       }
     },
     "incidents": {
@@ -1239,8 +1288,10 @@
       "waf": "ataques bloqueados por reglas WAF",
       "rootkit": "{{count}} infección de rootkit detectada",
       "ipdb": "Escáner IPDB - {{status}}.",
-      "accsuspend-domain": "{{user}} {{reason}} en {{domain}} {{type}}",
-      "accsuspend-virus": "{{user}} {{reason}} en {{count}} {{time}}",
+      "accsuspend-domain": "La cuenta del usuario {{user}} ha sido suspendida, {{reason}} en el dominio {{domain}} {{type}}",
+      "accsuspend-domains": "La cuenta del usuario {{user}} ha sido suspendida, {{reason}} en el dominio {{domain}} {{type}}",
+      "accsuspend-virus": "La cuenta del usuario {{user}} ha sido suspendida, {{count}} {{reason}} en {{time}} horas",
+      "accsuspend-viruss": "La cuenta del usuario {{user}} ha sido suspendida, {{count}} {{reason}} en {{time}} horas",
       "rootkit-detecteds": "{{count}} rootkits detectados",
       "scanner-files": "{{count}} Infección de virus detectada por cPGuard",
       "daily-scan": "Escaneo diario terminado, {{total}} archivos escaneados y {{found}} archivos detectados",
@@ -1298,7 +1349,14 @@
       "service-reloaded": "Servicio {{service}} recargado",
       "service-reload-failed": "Error al recargar el servicio {{service}}",
       "website-rebuild-success": "El sitio web {{domain}} del usuario {{user}} se ha reconstruido con éxito",
-      "website-rebuild-failed": "Error al reconstruir el sitio web {{domain}} del usuario {{user}}"
+      "website-rebuild-failed": "Error al reconstruir el sitio web {{domain}} del usuario {{user}}",
+      "backup": "Copia de seguridad de {{count}} sitio web fallida",
+      "backups": "Copia de seguridad de {{count}} sitios web fallida",
+      "plugin-activated": "Plugin {{name}} activado en el dominio {{domain}}",
+      "plugin-deactivated": "Plugin {{name}} desactivado en el dominio {{domain}}",
+      "theme-activated": "Tema {{name}} activado en el dominio {{domain}}",
+      "plugin-deleted": "Plugin {{name}} eliminado en el dominio {{domain}}",
+      "theme-deleted": "Tema {{name}} eliminado en el dominio {{domain}}"
     },
     "scanner_status": {
       "multiple": "Varios interruptores están apagados",
@@ -1347,7 +1405,9 @@
     "db-scanner": "Escáner de base de datos",
     "services": "Servicios",
     "websites": "Sitios web",
-    "monitoring": "Monitoreo del sistema"
+    "monitoring": "Monitoreo del sistema",
+    "backup": "Copia de seguridad",
+    "lynis": "Registro de Lynis"
   },
   "header": {
     "switch-server": "saltar al servidor...",
@@ -1428,7 +1488,13 @@
       "license-expire": "Estado de la licencia",
       "server-name": "Nombre del servidor",
       "alerts": "Alertas",
-      "ip": "IP"
+      "ip": "IP",
+      "log-disabled": "Registro deshabilitado",
+      "ipdb-off": "IPDB desactivado",
+      "ipdb-errors": "Errores de IPDB",
+      "no-data": "Sin datos",
+      "ipdb-firewall-off": "El cortafuegos IPDB está DESACTIVADO",
+      "ipdb-firewall-has-issues": "El cortafuegos IPDB tiene problemas"
     },
     "page-info-1": "Haga clic en el '+'",
     "page-info-3": "sus servidores aquí",
@@ -1455,9 +1521,9 @@
     "tag-updated-failed": "No se pudo actualizar la etiqueta, por favor intente nuevamente más tarde",
     "tag-created-success": "{{tag}} creado con éxito",
     "tag-created-failed": "No se pudo crear la etiqueta, por favor intente nuevamente más tarde",
-    "server-added" : "Servidor agregado a",
-    "server-removed" : "Servidor eliminado de",
-    "tags-title" : "Etiquetas actualizadas",
+    "server-added": "Servidor agregado a",
+    "server-removed": "Servidor eliminado de",
+    "tags-title": "Etiquetas actualizadas",
     "add-tag": "Agregar Etiqueta",
     "tag-table": {
       "label": "Etiqueta",
@@ -1616,13 +1682,17 @@
     "graph-virus": "Infecciones por virus",
     "view-all": "Ver todo",
     "notifications": "Notificaciones",
+    "no-websites": "¡Espera un momento! Estamos recopilando los datos de tráfico.",
+    "bandwidth": "Uso de ancho de banda",
+    "website-priority": "Listado de sitios web más visitados",
     "summary": {
       "title": "Resumen",
       "ips-blacklisted": "IP en la lista negra",
       "cms-issues": "Problemas de CMS",
       "rootkit-found": "RootKit encontrado",
       "domains-blacklisted": "Dominios en la lista negra",
-      "outdated-cms": "CMS desactualizado"
+      "outdated-cms": "CMS desactualizado",
+      "db-infections": "Infecciones en la base de datos"
     },
     "card": {
       "overall": "General",
@@ -1661,16 +1731,24 @@
     },
     "host-errors": {
       "invalid": {
-        "title": "El nombre de host predeterminado no es un dominio válido",
-        "message": "El nombre de host predeterminado del servidor no es un dominio válido. Se requiere un dominio válido para que ciertas funciones del panel de control funcionen correctamente"
+        "title": "El nombre de host no es un dominio válido",
+        "message": "Se requiere un nombre de dominio completamente calificado (FQDN) y debe estar correctamente configurado para el pleno funcionamiento de las funciones del panel de control."
       },
       "error": {
-        "title": "El DNS del dominio no apunta al servidor",
-        "message": "El dominio predeterminado no apunta a la dirección IP de este servidor. El DNS debe configurarse correctamente para el funcionamiento completo del panel de control"
+        "title": "El nombre de host del servidor no apunta a la dirección IP de este servidor",
+        "message": "El nombre de host del servidor no apunta a la dirección IP de este servidor. El DNS debe estar configurado correctamente para que el panel de control funcione correctamente."
       },
       "ssl": {
-        "title": "No se pudo obtener el certificado SSL",
-        "message": "La configuración automática de SSL falló para el dominio predeterminado. Esto puede limitar el acceso a algunas funciones del panel de control. Asegúrese de que el dominio sea válido, accesible públicamente y esté correctamente apuntado a este servidor."
+        "title": "Error al obtener el certificado SSL para el nombre de host",
+        "message": "La configuración automática de SSL falló para el nombre de host del servidor. Esto puede restringir el acceso a algunas funciones del panel de control. Asegúrese de que el nombre de host sea un dominio válido, esté accesible públicamente y correctamente dirigido a la dirección IP de este servidor."
+      },
+      "check": {
+        "title": "Comprobar",
+        "title-2": "Comprobando...",
+        "success": "¡Configuración completa! Su servidor web y dominio están configurados correctamente.",
+        "invalid-domain": "El nombre de host no es un FQDN válido. Por favor, cámbielo a un nombre de dominio funcional como 'server.yourdomain.com'",
+        "scheduled": "La configuración del servidor web y la verificación del dominio están en progreso. La notificación se eliminará al completarse.",
+        "failure": "El nombre de host del servidor no se está resolviendo a este servidor. Por favor, verifique los registros DNS y confirme que apuntan a la dirección IP de este servidor."
       }
     }
   },
@@ -1913,7 +1991,8 @@
       "queued": "Puesto en cola",
       "running": "Corriendo",
       "preparing": "Preparando",
-      "deleting": "Eliminando..."
+      "deleting": "Eliminando...",
+      "stopping": "Deteniendo..."
     }
   },
   "virus-scanner": {
@@ -1986,8 +2065,8 @@
       "update-now": "Actualizar ahora",
       "auto-update": "Actualización automática",
       "update-to": "Actualizar a",
-      "no-plugins": "No se encontraron plugins",
-      "no-themes": "No se encontraron temas",
+      "no-plugins": "No hay plugins disponibles",
+      "no-themes": "No hay temas disponibles",
       "no-vulnerabilities": "No se encontraron vulnerabilidades",
       "threats": "Amenazas",
       "plugins": "plugins",
@@ -2013,7 +2092,42 @@
         "cvss-score": "Puntuación CVSS",
         "cvss-rating": "Clasificación CVSS",
         "issues": "Problemas"
-      }
+      },
+      "retain-success": "Retenido con éxito",
+      "retain-failed": "Error al retener",
+      "dismiss-success": "Despedido con éxito",
+      "dismiss-failed": "Error al despedir",
+      "core-vulnerabilities": "Vulnerabilidades del núcleo",
+      "settings": "Configuraciones",
+      "wp_debug_desc": "Muestra mensajes de error detallados para ayudar a solucionar problemas de WordPress.",
+      "wp_debug_display_desc": "Muestra mensajes de depuración directamente en el frontend del sitio.",
+      "wp_debug_log_desc": "Guarda mensajes de depuración en el archivo wp-content/debug.log para su revisión posterior.",
+      "wp_cron_desc": "Permite que WordPress ejecute tareas programadas como publicar entradas y buscar actualizaciones.",
+      "wp-login-success": "Inicio de sesión exitoso",
+      "wp-login-failed": "Error de inicio de sesión",
+      "no-admin-users": "No se encontraron usuarios administradores",
+      "wordpress-error": "No pudimos generar su enlace de inicio de sesión debido a problemas inesperados en la instalación de WordPress.",
+      "wp_debug_enable_success": "Habilitado WP_DEBUG con éxito",
+      "wp_debug_disable_success": "Deshabilitado WP_DEBUG con éxito",
+      "wp_debug_display_enable_success": "Habilitado WP_DEBUG_DISPLAY con éxito",
+      "wp_debug_display_disable_success": "Deshabilitado WP_DEBUG_DISPLAY con éxito",
+      "wp_debug_log_enable_success": "Habilitado WP_DEBUG_LOG con éxito",
+      "wp_debug_log_disable_success": "Deshabilitado WP_DEBUG_LOG con éxito",
+      "wp_failed": "Error al realizar la acción, por favor inténtelo de nuevo más tarde",
+      "login-to-admin": "Iniciar sesión en WP Admin",
+      "login": "Iniciar sesión",
+      "activate_success": "Activado con éxito",
+      "deactivate_success": "Desactivado con éxito",
+      "delete_success": "Eliminado con éxito",
+      "component-not-found": "Componente no encontrado",
+      "activation-failed": "Error al activar",
+      "deactivation-failed": "Error al desactivar",
+      "deletion-failed": "Error al eliminar",
+      "invalid-action": "Acción no válida",
+      "active-theme": "El tema está actualmente activo",
+      "refresh-details": "Actualizar detalles",
+      "core-error": "No pudimos obtener detalles debido a un error de WordPress",
+      "common-error": "Hubo errores al obtener detalles"
     }
   },
   "db-scanner": {
@@ -2345,6 +2459,29 @@
     "rk-hunter-log": "Registro de RKHunter",
     "title": "Registros del explorador de RootKit"
   },
+  "lynis": {
+    "title": "Registros de Lynis",
+    "no-summary": "No hay resumen para mostrar",
+    "no-summary-desc": "Por favor, espere a que se complete el próximo escaneo programado",
+    "no-raw-output": "No hay salida sin procesar para mostrar",
+    "no-record": "No hay registros disponibles",
+    "cards": {
+      "running": "Comprobando...",
+      "last-run": "Última ejecución",
+      "duration": "Duración",
+      "version": "Versión",
+      "summary": "Resumen",
+      "raw-output": "Salida sin procesar",
+      "article": "Artículo",
+      "status": "Estado",
+      "failed": "Última verificación fallida",
+      "solution": "Solución"
+    },
+    "disabled": {
+      "title": "Lynis no está habilitado en este servidor",
+      "desc": "Lynis es una herramienta de auditoría de seguridad para sistemas basados en Unix."
+    }
+  },
   "settings": {
     "title": "Ajustes",
     "about": "Acerca de",
@@ -2368,7 +2505,8 @@
     "common-error": {
       "file-not-found": "El archivo no existe",
       "already-exists": "El archivo ya existe",
-      "tool-missing": "Falta la herramienta de firma"
+      "tool-missing": "Falta la herramienta de firma",
+      "reserved": "No se pueden incluir reglas reservadas/pruebas en la lista blanca"
     },
     "virus-scanner": {
       "main-title": "Escáner de virus",
@@ -2595,17 +2733,24 @@
     },
     "notification": {
       "notify-brute-force-attacks": "Ataques de fuerza bruta",
+      "notify-brute-force-attacks-desc": "Enviar notificación por correo electrónico al usuario cuando se detecten ataques de fuerza bruta en la cuenta",
       "user-notifications": "Notificaciones de usuario",
       "notify-binary-file-detections": "Detecciones de archivos binarios",
+      "notify-binary-file-detections-desc": "Enviar notificación por correo electrónico al usuario cuando se detecten archivos binarios en la cuenta",
       "main-email-address": "Dirección de correo electrónico principal",
-      "notify-irus-detections": "Detecciones de virus",
+      "notify-virus-detections": "Detecciones de virus",
+      "notify-virus-detections-desc": "Enviar notificación por correo electrónico al usuario cuando se detecten archivos de virus en la cuenta",
       "additional-email-address": "Dirección de correo electrónico adicional",
       "additional-email-address-info": "Correo electrónico opcional para recibir notificaciones",
       "main-email-address-info": "Dirección de correo electrónico principal para recibir notificaciones",
       "sub-title": "Configuración para administrar todas las notificaciones por correo electrónico de cPGuard",
+      "sub-title-2": "Configuración para administrar todas las notificaciones de Slack de cPGuard",
       "daily-reports": "Reportes diarios",
+      "daily-reports-desc": "Enviar reportes diarios a los usuarios sobre la seguridad de su cuenta",
       "notify-sus-pattern-detections": "Detecciones de patrones sospechosos",
+      "notify-sus-pattern-detections-desc": "Enviar notificación por correo electrónico al usuario cuando se detecten patrones sospechosos en la cuenta",
       "notify-ip-blacklist": "en la lista negra de IP",
+      "notify-ip-blacklist-desc": "Enviar notificación por correo electrónico al usuario cuando la IP esté en la lista negra",
       "user-notifications-info": "Enviar notificación de CMS desactualizado",
       "user-cms-notifications": "Usuarios excluidos",
       "user-cms-notifications-info": "Los usuarios seleccionados no recibirán notificaciones",
@@ -2633,6 +2778,99 @@
         "daily": "Diario",
         "weekly": "Semanal",
         "monthly": "Mensual"
+      },
+      "email": "Email",
+      "slack": "Slack",
+      "invalid-email": "Debes ingresar una dirección de correo electrónico válida",
+      "webhook-url-required": "Se requiere la URL del webhook",
+      "invalid-webhook-url": "Debes ingresar una URL de webhook válida",
+      "learn-more": "Aprende más sobre",
+      "webhook-url": "URL del webhook de Slack",
+      "webhook-url-title": "Enviar notificaciones de incidentes a Slack",
+      "webhook-url-info": "Introduce la URL de tu webhook de Slack para recibir notificaciones",
+      "webhook-url-placeholder": "Introduce la URL de tu webhook de Slack aquí",
+      "primary-email-required": "Debes ingresar una dirección de correo electrónico principal",
+      "valid-primary-email-required": "Debes ingresar una dirección de correo electrónico principal válida",
+      "failed-to-fetch": "No se pudo obtener la configuración de notificaciones",
+      "daily_weekly_scan": {
+        "title": "Escaneo semanal/diario",
+        "desc": "Enviar notificación de Slack al usuario cuando se complete el escaneo semanal/diario"
+      },
+      "backup_status": {
+        "title": "Estado de la copia de seguridad",
+        "desc": "Enviar notificación de Slack al usuario cuando se complete la copia de seguridad"
+      },
+      "brute_force_status": {
+        "title": "Estado de fuerza bruta",
+        "desc": "Enviar notificación de Slack al usuario cuando se detecten ataques de fuerza bruta"
+      },
+      "csf_action": {
+        "title": "Acción CSF",
+        "desc": "Enviar notificación de Slack al usuario cuando se tome una acción CSF en su cuenta"
+      },
+      "malware_process": {
+        "title": "Proceso sospechoso",
+        "desc": "Enviar notificación de Slack al usuario cuando se detecte un proceso sospechoso"
+      },
+      "mscan_status": {
+        "title": "Estado de escaneo manual",
+        "desc": "Enviar notificación de Slack al usuario cuando finalice el escaneo manual"
+      },
+      "ipdb_status": {
+        "title": "Estado de IPDB",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie el estado de IPDB"
+      },
+      "notify_iprep": {
+        "title": "Reputación de IP",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie la reputación de IP"
+      },
+      "scanner_status": {
+        "title": "Estado del escáner",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie el estado del escáner"
+      },
+      "services_status": {
+        "title": "Estado de los servicios",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie el estado de los servicios"
+      },
+      "suspend_service": {
+        "title": "Suspender cuenta/dominio",
+        "desc": "Enviar notificación de Slack al usuario cuando se suspenda la cuenta/dominio"
+      },
+      "suspicious": {
+        "title": "Archivo sospechoso",
+        "desc": "Enviar notificación de Slack al usuario cuando se detecte un archivo sospechoso"
+      },
+      "vulnerable_cms": {
+        "title": "CMS vulnerable",
+        "desc": "Enviar notificación de Slack al usuario cuando se encuentren vulnerabilidades en el CMS"
+      },
+      "waf_status": {
+        "title": "Estado de WAF",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie el estado de WAF"
+      },
+      "website_status": {
+        "title": "Estado del sitio web",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie el estado del sitio web"
+      },
+      "wp_patch": {
+        "title": "Parche de WordPress",
+        "desc": "Enviar notificación de Slack al usuario cuando se actualice, desactive, etc. el núcleo/plugin/tema de WordPress."
+      },
+      "wp_status": {
+        "title": "Estado de WordPress",
+        "desc": "Enviar notificación de Slack al usuario cuando se habilite o deshabilite un plugin/tema de WordPress o se restaure un archivo del núcleo, etc."
+      },
+      "scanner": {
+        "title": "Archivos de virus",
+        "desc": "Enviar notificación de Slack al usuario cuando se detecten archivos de virus en la cuenta"
+      },
+      "binary": {
+        "title": "Archivos binarios",
+        "desc": "Enviar notificación de Slack al usuario cuando se detecten archivos binarios"
+      },
+      "license": {
+        "title": "Notificaciones de licencia",
+        "desc": "Enviar notificación de Slack al usuario cuando cambie el estado de la licencia"
       }
     },
     "about-page": {
@@ -2671,7 +2909,11 @@
           "fetch": "No se pudo obtener la configuración general",
           "hostname": "No se pudo actualizar el nombre del host",
           "timezone": "No se pudo actualizar la zona horaria",
-          "retain-web-traffic": "No se pudo actualizar el periodo de retención del tráfico web"
+          "retain-web-traffic": "No se pudo actualizar el periodo de retención del tráfico web",
+          "invalid-hostname": "Invalid hostname format. Please use a valid hostname.",
+          "invalid-timezone": "Invalid time zone format. Please select a valid time zone.",
+          "invalid-retention-period": "Invalid retention period format. Please use a valid retention period.",
+          "domain-exists": "El dominio ya existes."
         }
       },
       "webserver": {
@@ -2691,8 +2933,7 @@
       },
       "php-module": {
         "title": "Configuraciones para la aplicación FPM {{version}}",
-        "desc-1": "Estas configuraciones son comunes a los siguientes controladores de PHP:",
-        "desc-2": "Las configuraciones se aplican a todos los sitios web que usan estos controladores"
+        "desc-1": "Habilitar o deshabilitar extensiones (módulos) PHP específicos para su sitio web. Estas configuraciones afectan a todos los sitios web que se ejecutan bajo el mismo controlador."
       },
       "backup": {
         "title": "Copia de Seguridad del Sitio Web",
@@ -2706,7 +2947,7 @@
         "backup-type-incremental-desc": "Guarda solo los cambios realizados desde la última copia, usando menos espacio y tiempo.",
         "disk-space": "Comprobar el Espacio Disponible en Disco",
         "disk-space-desc": "Asegúrate de tener suficiente espacio en disco para la copia. Si no, fallará.",
-        "disk-limit": "Establecer límite de memoria para la copia",
+        "disk-limit": "Establece el espacio libre mínimo requerido en el disco de respaldo",
         "schedule-and-retenton": "Programación y Retención",
         "schedule-and-retention-desc": "Establece la frecuencia de las copias y cuánto tiempo se conservarán.",
         "daily-backup": "Copia Diaria",
@@ -2724,7 +2965,8 @@
         "backup-directory-desc": "Elige dónde se almacenarán las copias. Asegúrate de que tenga suficiente espacio.",
         "exclude-websites": "Excluir Sitios Web",
         "exclude-websites-desc": "Selecciona los sitios web que no deseas incluir en la copia.",
-        "no-websites-excluded": "No se han excluido sitios web de la copia de seguridad."
+        "no-websites-excluded": "No se han excluido sitios web de la copia de seguridad.",
+        "schedule-enable": "Debe habilitarse al menos una programación."
       },
       "errors": {
         "unsupported-version": "Versión de PHP no compatible",
@@ -2734,7 +2976,11 @@
         "fpm-update-error": "No se pudieron actualizar las configuraciones de FPM",
         "php-module-update-error": "No se pudieron actualizar las configuraciones del módulo PHP",
         "server-switch-error": "No se pudo cambiar el servidor web",
-        "server-fetch-error": "No se pudieron obtener las configuraciones del servidor web"
+        "server-fetch-error": "No se pudieron obtener las configuraciones del servidor web",
+        "domain-exists": "El dominio ya existe",
+        "invalid-hostname": "Formato de nombre de host inválido. Por favor, use un nombre de host válido.",
+        "invalid-extensions": "Extensiones no válidas",
+        "invalid-extensions-desc": "Algunas de las extensiones seleccionadas no son válidas o no están disponibles para la versión de PHP seleccionada."
       },
       "success": {
         "fpm-update": "Configuraciones de FPM actualizadas correctamente",
@@ -2828,7 +3074,12 @@
         "cve_score": "Actualizar si el puntaje CVE es mayor que",
         "switch": "Actualizar automáticamente WordPress vulnerable",
         "days": "Días desde que se lanzó una actualización"
-      }
+      },
+      "notify-main-email": "Notificar correo electrónico principal",
+      "notify-secondary-email": "Notificar correo electrónico secundario",
+      "cve-placeholder": "Introducir puntuación CVE",
+      "days-placeholder": "Introducir días",
+      "select-countries": "Seleccionar países"
     },
     "response-dialog": {
       "title": "Operaciones Masivas - ",
@@ -2845,8 +3096,10 @@
         "title": "Refrescante {{type}} {{domain}}",
         "action": "enlace",
         "goto": "cms",
+        "command-failed": "Error al refrescar los detalles del CMS",
         "stages": {
           "start": "Actualizando información",
+          "failed": "Error al actualizar los detalles del CMS",
           "closed": "Detalles obtenidos y actualizados",
           "command-failed": "Error al actualizar los detalles"
         }
@@ -2854,41 +3107,51 @@
       "auto-update-disable": {
         "title": "Desactivar la actualización automática para {{type}} {{domain}} {{component}} {{name}}",
         "action": "progreso",
+        "command-failed": "Error al desactivar la actualización automática",
         "stages": {
           "start": "Configurar la actualización automática",
+          "failed": "Error al desactivar la actualización automática",
           "closed": "Actualización automática deshabilitada"
         }
       },
       "auto-update-disable-all": {
         "title": "Deshabilitar la actualización automática para todos {{component}}s de {{type}} {{domain}}",
         "action": "progreso",
+        "command-failed": "Error al desactivar la actualización automática",
         "stages": {
           "start": "Configurar la actualización automática",
+          "failed": "Error al desactivar la actualización automática",
           "closed": "Actualización automática deshabilitada"
         }
       },
       "auto-update-enable": {
         "title": "Habilitar la actualización automática para {{type}} {{domain}} {{component}} {{name}}",
         "action": "progreso",
+        "command-failed": "Error al habilitar la actualización automática",
         "stages": {
           "start": "Configurar la actualización automática",
+          "failed": "Error al habilitar la actualización automática",
           "closed": "Actualización automática habilitada"
         }
       },
       "auto-update-enable-all": {
         "title": "Habilitar la actualización automática para todos {{component}}s de {{type}} {{domain}}",
         "action": "progreso",
+        "command-failed": "Error al habilitar la actualización automática",
         "stages": {
           "start": "Configurar la actualización automática",
+          "failed": "Error al habilitar la actualización automática",
           "closed": "Actualización automática habilitada"
         }
       },
       "update": {
         "title": "Actualizando {{type}} {{domain}}",
         "action": "progreso",
+        "command-failed": "Error al actualizar",
         "stages": {
           "updating": "Descarga y actualización",
           "refreshing": "Detalles refrescantes",
+          "failed": "La actualización falló",
           "closed": "Actualización completada",
           "failed.command-failed": "La actualización falló debido a un error inesperado",
           "failed.cms-not-found": "CMS no encontrado en el servidor"
@@ -2898,6 +3161,8 @@
         "title": "Actualizando {{type}} {{component}} {{name}}",
         "action": "progreso",
         "command-failed": "La actualización falló debido a un error inesperado",
+        "plugin-not-found": "Complemento no encontrado en el servidor",
+        "theme-not-found": "Tema no encontrado en el servidor",
         "stages": {
           "updating": "Descarga y actualización",
           "refreshing": "Detalles refrescantes",
@@ -2911,9 +3176,12 @@
       "update-component-all": {
         "title": "Actualizando {{type}} {{domain}} {{component}}s",
         "action": "progreso",
+        "command-failed": "La actualización falló debido a un error inesperado",
+        "wordpress-error": "No se pudo actualizar el núcleo de WordPress",
         "stages": {
           "updating": "Descarga y actualización {{name}}",
           "refreshing": "Detalles refrescantes",
+          "failed": "La actualización falló",
           "closed": "Actualización completada",
           "failed.command-failed": "La actualización falló debido a un error inesperado",
           "failed.cms-not-found": "CMS no encontrado en el servidor"
@@ -2923,38 +3191,53 @@
     "file": {
       "extract": {
         "title": "Extrayendo",
-        "action": "extraer",
+        "action": "progreso",
         "stages": {
-          "progressing": "Extrayendo archivos",
+          "processing": "Procesando archivo para extracción",
+          "started": "Extracción iniciada",
           "closed": "Extracción completada",
-          "stopped": "Extracción fallida"
+          "completed": "Extracción completada",
+          "stopped": "Extracción detenida",
+          "failed": "Extracción fallida"
         }
       },
       "copy": {
         "title": "Copiando",
-        "action": "copiar",
+        "action": "progreso",
         "stages": {
-          "progressing": "Copiando archivos",
+          "processing": "Procesando archivo para copiar",
           "closed": "Copia completada",
-          "stopped": "Copia fallida"
+          "started": "Copia iniciada",
+          "in-progress": "Copia en progreso",
+          "completed": "Copia completada",
+          "stopped": "Copia detenida",
+          "failed": "Copia fallida"
         }
       },
       "move": {
         "title": "Moviendo",
-        "action": "mover",
+        "action": "progreso",
         "stages": {
-          "progressing": "Moviendo archivos",
+          "processing": "Procesando archivo para mover",
           "closed": "Movimiento completado",
-          "stopped": "Movimiento fallido"
+          "started": "Movimiento iniciado",
+          "in-progress": "Movimiento en progreso",
+          "completed": "Movimiento completado",
+          "stopped": "Movimiento detenido",
+          "failed": "Movimiento fallido"
         }
       },
       "compress": {
-        "title": "Comprimiendo",
-        "action": "comprimir",
+        "title": "Comprimir",
+        "action": "progreso",
         "stages": {
-          "progressing": "Comprimiendo archivos",
+          "processing": "Procesando archivo para compresión",
           "closed": "Compresión completada",
-          "stopped": "Compresión fallida"
+          "started": "Compresión iniciada",
+          "in-progress": "Compresión en progreso",
+          "completed": "Compresión completada",
+          "stopped": "Compresión detenida",
+          "failed": "Compresión fallida"
         }
       }
     },
@@ -3002,7 +3285,68 @@
     "alias": "alias",
     "disabled": "deshabilitado",
     "inactive": "inactivo",
-    "not-found": "no encontrado"
+    "not-found": "Servicios no disponibles en este momento",
+    "start": "Iniciar",
+    "stop": "Detener",
+    "restart": "Reiniciar",
+    "reload": "Recargar"
+  },
+  "backup": {
+    "title": "Copias de seguridad",
+    "delete-header": "Eliminar Copia de seguridad",
+    "delete-desc": "¿Está seguro de que desea eliminar <strong>{{file}}</strong> de <strong>{{domain}}</strong> ?",
+    "no-backup": "No hay copias de seguridad disponibles en este momento",
+    "backup-logs": "Registros de Copia de Seguridad",
+    "success": {
+      "delete-success": "Copia de seguridad eliminada con éxito"
+    },
+    "error": {
+      "delete-error": "Error al eliminar la copia de seguridad",
+      "fetch-error": "Error al obtener los registros de copia de seguridad",
+      "download-error": "Error al descargar el archivo de copia de seguridad",
+      "restore-error": "Error al restaurar la copia de seguridad"
+    },
+    "status": {
+      "0": "Éxito",
+      "2": "Error al crear los directorios de copia de seguridad",
+      "5": "Error al crear la copia de seguridad comprimida",
+      "20": "Error al crear el directorio de copia de seguridad",
+      "30": "Error al crear la copia de seguridad del archivo",
+      "40": "Error al crear la copia de seguridad de la configuración",
+      "50": "Error al crear la copia de seguridad de la base de datos",
+      "60": "Error al comprimir",
+      "null": "No se han creado copias de seguridad",
+      "200": "Espacio insuficiente"
+    },
+    "table": {
+      "domain": "Dominio",
+      "no-of-backups": "No. de Copias de Seguridad",
+      "last-status": "Último Estado de Copia de Seguridad",
+      "last-date": "Última Fecha de Copia de Seguridad",
+      "last-time": "Última Hora de Copia de Seguridad"
+    },
+    "inner-table": {
+      "filename": "Nombre del Archivo",
+      "date": "Fecha",
+      "status": "Estado",
+      "duration": "Duración",
+      "size": "Tamaño",
+      "user": "Usuario"
+    }
+  },
+  "monitoring": {
+    "cpu-usage": "Uso de CPU",
+    "cpu-usage-desc": "Porcentaje de uso de CPU en los últimos 5 minutos",
+    "memory-usage": "Uso de Memoria",
+    "memory-usage-desc": "Porcentaje de uso de memoria en los últimos 5 minutos",
+    "web-traffic": "Tráfico Web",
+    "web-traffic-desc": "Número de solicitudes y uso de ancho de banda",
+    "disk-usage": "Uso de Disco",
+    "disk-usage-desc": "Porcentaje de uso de disco para el servidor",
+    "load-average": "Promedio de Carga",
+    "load-average-desc": "Promedio de carga del servidor",
+    "live-connections": "Conexiones Activas",
+    "live-connections-desc": "Número de conexiones activas al servidor"
   },
   "panel": {
     "website": "Sitio web",
@@ -3022,6 +3366,7 @@
     "custom": "personalizado",
     "self": "propio",
     "error": "error",
+    "no-data-with-filter": "No se encontraron sitios web para el filtro actual",
     "create-form": {
       "title": "Agregar dominio",
       "update": "Actualizar dominio",
@@ -3168,7 +3513,8 @@
       "delete": "Eliminar",
       "delete_confirmation": "¿Estás seguro de que deseas eliminarlo?",
       "cancel": "Cancelar",
-      "switch": "Cambiar"
+      "switch": "Cambiar",
+      "browser-confirmation": "Tiene cambios sin guardar. ¿Está seguro de que desea salir?"
     },
     "cron": {
       "title": "Trabajos Cron",
@@ -3226,8 +3572,8 @@
       "glance": "De un vistazo",
       "disk-space": "Espacio en disco utilizado",
       "db-usage": "Base de datos utilizada",
-      "traffic-today" :"Tráfico hoy",
-      "traffic-month" :"Tráfico este mes",
+      "traffic-today": "Tráfico hoy",
+      "traffic-month": "Tráfico este mes",
       "WA": "Ataques web",
       "VA": "Ataques de virus",
       "hosting": "Alojamiento",
@@ -3237,7 +3583,8 @@
         "disabled": "Deshabilitado",
         "suspended": "Suspendido",
         "inactive": "Inactivo",
-        "failed": "Fallido"
+        "failed": "Fallido",
+        "maintenance": "Mantenimiento"
       },
       "tool": {
         "title": "Herramienta",
@@ -3250,7 +3597,8 @@
         "logs": "Registros",
         "logs-desc": "Ver tus registros",
         "cron-jobs": "Trabajos Cron",
-        "cron-jobs-desc": "Tareas programadas"
+        "cron-jobs-desc": "Tareas programadas",
+        "phpMyAdmin-disabled": "Hay un problema con el dominio predeterminado que impide el acceso a phpMyAdmin. Por favor, verifica la configuración del dominio o intenta nuevamente más tarde."
       },
       "navigation": {
         "tools": "Herramientas",
@@ -3301,6 +3649,7 @@
         "placeholder": "Ingrese su nombre de usuario",
         "no-data": "Sin datos",
         "no-user-found": "No se encontró ningún usuario",
+        "no-users": "No hay usuarios disponibles",
         "edit": {
           "title": "Editar nombre de usuario",
           "sub-1": "nombre de usuario antiguo",
@@ -3340,6 +3689,7 @@
         "preparing-session": "Estamos preparando su sesión.",
         "popup-blocked": "Ventana emergente bloqueada. Por favor, permita las ventanas emergentes.",
         "phpmyadmin-url-not-defined": "La URL de phpMyAdmin no está definida.",
+        "no-database": "No hay base de datos disponible",
         "add": {
           "title": "Agregar base de datos",
           "DB-name-placeholder": "Ingrese el nombre de su base de datos",
@@ -3415,6 +3765,12 @@
         }
       },
       "info": {
+        "php-url-not-defined": "La URL de phpMyAdmin no está definida.",
+        "copied": "Copiado...",
+        "failed-to-copy": "Error al copiar:",
+        "popup-blocked": "Ventana emergente bloqueada. Por favor, permita las ventanas emergentes.",
+        "preparing-session": "Estamos preparando su sesión.",
+        "please-wait": "Por favor, espere...",
         "database": {
           "repair-db": {
             "wp_commentmeta": "Metadatos de comentarios de WordPress",
@@ -3433,13 +3789,15 @@
         },
         "common": {
           "summary": "Resumen",
+          "traffic": "Tráfico",
           "request": "Solicitudes Hoy",
           "infected": "Archivos Infectados",
           "blocked-by-waf": "Bloqueados por WAF",
           "bot-attacks": "Ataques de Bots",
-          "apps-installed": "Aplicación instalada",
+          "apps-installed": "Aplicaciones instaladas",
           "manage": "Gestionar",
-          "empty": "Aún no hay aplicaciones instaladas"
+          "empty": "No hay aplicaciones instaladas aún",
+          "request-progress": "Aumento de solicitudes hoy en comparación con ayer"
         }
       },
       "ssl": {
@@ -3450,7 +3808,7 @@
         "status": "Estado:",
         "expiry": "Expiración:",
         "renew": "Renueva:",
-        "redirect": "Redirigir de http a https",
+        "redirect": "Redirigir todas las solicitudes HTTP a HTTPS",
         "ssl-provider": "Proveedor de SSL",
         "renew-btn": "Renovar SSL",
         "auto-btn": "Habilitar Auto SSL",
@@ -3499,7 +3857,11 @@
           "ssl-not-expired": "SSL no ha expirado",
           "ssl-not-found": "Certificado SSL no encontrado",
           "ssl-not-valid": "Certificado SSL no válido",
-          "ssl-not-supported": "Certificado SSL no compatible"
+          "ssl-not-supported": "Certificado SSL no compatible",
+          "redirect-success": "Redirección de HTTP a HTTPS habilitada con éxito",
+          "redirect-error": "Error al habilitar la redirección de HTTP a HTTPS",
+          "redirect-disabled": "Redirección de HTTP a HTTPS deshabilitada con éxito",
+          "redirect-disabled-error": "Error al deshabilitar la redirección de HTTP a HTTPS"
         }
       },
       "domains-list": {
@@ -3521,7 +3883,7 @@
         "webspace": {
           "heading": "Configuraciones del espacio web",
           "title": "Credenciales del usuario del sistema",
-          "sub-title": "Administra los archivos y carpetas del sitio web a través de FTP o el Administrador de Archivos. Accede al servidor a través de SSH si está permitido.",
+          "sub-title": "Configura los métodos utilizados para iniciar sesión de forma segura en tu servidor mediante SSH.",
           "username": "Nombre de usuario",
           "password": "Contraseña",
           "password-sub": "Especifica una nueva contraseña aquí para cambiar la contraseña del usuario del sistema.",
@@ -3541,35 +3903,105 @@
         "download": "Descargar",
         "result": "Resultado encontrado",
         "found-for": "No se encontraron resultados para",
-        "error-logs": "Registros de errores"
+        "error-logs": "Registros de errores",
+        "next": "Siguiente",
+        "prev": "Anterior",
+        "file-read-error": "Error al leer el archivo de registro",
+        "file-rotated": "El archivo de registro ha sido rotado",
+        "date-placeholder": "Fecha de inicio - Fecha de finalización",
+        "file-not-found": "Archivo de registro no encontrado",
+        "unknown-error": "Se produjo un error desconocido al recuperar los registros"
       },
       "ssh": {
-        "title": "Claves SSH",
+        "title": "SSH",
+        "sub-title": "Autenticación SSH",
+        "access-to": "Acceso a este servidor (Claves autorizadas)",
+        "access-from": "Acceso desde este servidor (Pares de claves SSH)",
+        "sub-1": "Agregue sus claves aquí para habilitar el acceso SSH seguro basado en claves sin contraseñas.",
+        "sub-2": "Configurar servicios externos",
+        "sub-3": "y destinos a los que este servidor puede conectarse.",
+        "key-label": "Etiqueta de clave",
+        "key-label-placeholder": "Ingrese una etiqueta para su clave SSH",
+        "key-type": "Tipo de clave",
+        "key-type-placeholder": "Seleccione el tipo de clave",
+        "add-pair": "Agregar par de claves",
+        "add-public": "Agregar clave pública",
+        "filename": "Nombre de archivo",
+        "filename-placeholder": "Ingrese un nombre de archivo para su clave",
+        "private-title": "Archivo de clave privada",
+        "public-title": "Archivo de clave pública",
+        "desc": "Uso / Descripción (Opcional)",
         "add-btn": "Agregar clave SSH",
         "paste-btn": "Pegar clave",
         "create-title": "Crear clave SSH",
         "edit-title": "Editar clave SSH",
         "key": "Clave",
         "key-placeholder": "Ingrese su clave SSH",
-        "comment": "Comentario",
-        "comment-placeholder": "Ingrese un comentario para su clave SSH",
+        "comment": "Comentario (Opcional)",
+        "comment-placeholder": "Notas adicionales sobre la clave",
+        "upload-btn": "Importar par de claves",
+        "generate-btn": "Generar par de claves",
         "authorize-key": "Autorizar clave",
         "key-size": "Tamaño de clave",
+        "key-format": "Formato de clave",
+        "key-format-placeholder": "Seleccionar formato de clave",
         "key-size-placeholder": "Seleccionar tamaño de clave",
         "paste-title": "Pegar clave autorizada",
-        "no-keys": "No se encontraron claves SSH",
+        "paste-placeholder": "Pegar su clave SSH pública aquí",
+        "no-keys": "No se han agregado claves SSH",
+        "no-public-keys": "No se han agregado claves públicas",
         "no-keys-desc": "Puede agregar una nueva clave SSH haciendo clic en el botón 'Agregar clave SSH'.",
+        "public-key": "Clave pública",
+        "private-key": "Clave privada",
+        "upload-private": "Haz clic para subir la clave privada",
+        "upload-public": "Haz clic aquí para subir la clave pública",
+        "delete-title": "Eliminar clave",
+        "view-title": "Ver clave",
         "table": {
           "comment": "Comentario",
           "key": "Clave",
           "type": "Tipo",
           "size": "Tamaño",
           "global-key": "Clave global",
-          "actions": "Acciones"
+          "actions": "Acciones",
+          "fingerprint": "Huella digital",
+          "key_id": "ID de clave",
+          "permission": "Permisos"
+        },
+        "success": {
+          "key-added": "Clave añadida correctamente",
+          "key-deleted": "Clave eliminada correctamente",
+          "key-copied": "Clave copiada al portapapeles",
+          "key-generated": "Par de claves generado correctamente",
+          "updated-success": "Configuración actualizada correctamente"
+        },
+        "errors": {
+          "key-add-error": "Error al añadir la clave",
+          "key-delete-error": "Error al eliminar la clave",
+          "invalid-key": "Formato de clave no válido",
+          "key-already-exists": "La clave ya existe",
+          "key-not-found": "Clave no encontrada",
+          "fetch-error": "Error al obtener las claves",
+          "delete-error": "Error al eliminar la clave",
+          "copy-error": "Error al copiar la clave",
+          "update-error": "Error al actualizar la configuración",
+          "enter-valid-key": "Por favor, introduce una clave válida",
+          "ssh-directory-not-found": "Directorio SSH no encontrado",
+          "ssh-directory-not-readable": "El directorio SSH no es legible",
+          "failed-to-read-ssh-directory": "No se pudo leer el directorio SSH",
+          "invalid-public-key": "Formato de clave pública no válido",
+          "invalid-private-key": "Formato de clave privada no válido",
+          "failed-to-generate-public-key": "No se pudo generar la clave pública",
+          "failed-to-generate-private-key": "No se pudo generar la clave privada",
+          "openssh-private-key-not-supported": "El formato de clave privada OpenSSH no es compatible"
         }
       }
     },
     "file-manager": {
+      "search-filenames": "Buscar nombres de archivo",
+      "filename-only": "Solo nombre de archivo",
+      "filename-and-content": "Nombre de archivo y contenido",
+      "content-only": "Solo contenido",
       "table": {
         "no-data-available": "No hay datos disponibles",
         "folder-successfully-created": "Carpeta creada con éxito",
@@ -3580,9 +4012,26 @@
         "file-deleted-successfully": "Archivo eliminado con éxito",
         "file-copied-successfully": "Archivo copiado con éxito",
         "file-moved-successfully": "Archivo movido con éxito",
-        "folder-renamed-successfully": "Carpeta renombrada con éxito",
         "file-renamed-successfully": "Archivo renombrado con éxito",
-        "permission-changed-successfully": "Permisos cambiados con éxito"
+        "folder-deleted-successfully": "Carpeta eliminada con éxito",
+        "folder-copied-successfully": "Carpeta copiada con éxito",
+        "folder-moved-successfully": "Carpeta movida con éxito",
+        "folder-renamed-successfully": "Carpeta renombrada con éxito",
+        "permission-changed-successfully": "Permisos cambiados con éxito",
+        "multiple-delete-success": "Elementos seleccionados eliminados con éxito",
+        "multiple-copy-success": "Elementos seleccionados copiados con éxito",
+        "multiple-move-success": "Elementos seleccionados movidos con éxito",
+        "started": "iniciado...",
+        "progress": "en progreso...",
+        "completed": "completado",
+        "failed-to": "no se pudo",
+        "duplicate-file": "Archivo duplicado detectado durante",
+        "preparing-compress": "Preparando para comprimir...",
+        "preparing-extract": "Preparando para extraer...",
+        "preparing-copy": "Preparando para copiar...",
+        "preparing-move": "Preparando para mover...",
+        "preparing": "Preparando...",
+        "unable-download": "La descarga no está disponible temporalmente, por favor inténtelo de nuevo más tarde."
       },
       "progress-dialog": {
         "title": "Progreso de archivo {{operation}}",
@@ -3642,7 +4091,23 @@
         "path-not-allowed": "Ruta no permitida",
         "invalid-docroot": "Raíz de documento no válida",
         "docroot-in-use": "La raíz de documento ya está en uso",
-        "failed-load-subfolders": "Error al cargar subcarpetas"
+        "failed-load-subfolders": "Error al cargar subcarpetas",
+        "target-directory-not-found": "Directorio de destino no encontrado",
+        "user-directory-not-found": "Directorio de usuario no encontrado",
+        "invalid-compress-type": "Tipo de compresión no válido",
+        "no-files-to-compress": "No hay archivos para comprimir",
+        "zip-command-not-installed": "El comando zip no está instalado en el servidor",
+        "gzip-command-not-installed": "El comando gzip no está instalado en el servidor",
+        "unsupported-file-type": "Tipo de archivo no compatible",
+        "invalid-destination-path": "Ruta de destino no válida",
+        "invalid-source-path": "Ruta de origen no válida",
+        "unzip-command-not-installed": "El comando unzip no está instalado en el servidor",
+        "target-file-already-exists": "El archivo de destino ya existe",
+        "restricted": "Operación restringida",
+        "invalid-file-name": "Nombre de {{type}} no válido (solo se permiten caracteres alfanuméricos, guiones bajos y guiones)",
+        "invalid-folder-name": "Nombre de {{type}} no válido (solo se permiten caracteres alfanuméricos, guiones bajos y guiones)",
+        "directory-not-empty": "El directorio no está vacío",
+        "directory-not-empty-desc": "Seleccione la opción para eliminar el directorio no vacío"
       },
       "context-dialog": {
         "compress-type": "Tipo de compresión",
@@ -3690,40 +4155,55 @@
         "group-access": "Acceso del grupo",
         "world-access": "Acceso mundial",
         "permissions": "Permisos",
-        "no-access": "Sin acceso"
+        "no-access": "Sin acceso",
+        "delete-non-empty-folder": "Eliminar carpeta no vacía",
+        "new-folder": "Nueva Carpeta",
+        "new-file": "Nuevo Archivo",
+        "extract-files": "Extraer archivos",
+        "rename": "Renombrar",
+        "copy-files": "Copiar {{count}} archivos",
+        "move-files": "Mover {{count}} archivos",
+        "copy": "Copiar {{path}}",
+        "move": "Mover {{path}}",
+        "cut": "Cortar archivos"
       },
       "upload": {
         "title": "Importación de Archivo",
-        "title-sub":"a",
-        "sub-title": "SSubir y adjuntar archivos",
-        "option1": "Subir",
-        "option2": "Descargar",
+        "title-sub": "a",
+        "sub-title": "Subir y adjuntar archivos",
+        "option1": "Desde el dispositivo",
+        "option2": "Desde el enlace",
         "option3": "Clonar",
-        "click": "Haz clic para subir",
-        "drag": "o arrastra y suelta archivos aquí",
+        "click": "Explorar archivos",
+        "drag": "Arrastra y suelta archivos aquí",
         "overwrite": "Sobrescribir archivos existentes",
-        "exist": "El archivo {{file}} ya existe. Por favor, selecciona una acción que te gustaría realizar.",
+        "exist": "El archivo <strong class='text-blue-500'>{{file}}</strong> ya existe. Por favor, selecciona una acción que te gustaría realizar.",
         "download-file": "Descargar archivo",
         "download-file-placeholder": "Ingrese la URL para descargar el archivo",
         "save-file": "Guardar archivo como",
-        "save-file-placeholder": "Ingrese el nombre para guardar el archivo como",
-        "download-file-warning": "Advertencia: Este enlace puede no ser confiable o seguro. El usuario asume toda la responsabilidad por cualquier problema o consecuencia que pueda surgir al acceder a él.",
+        "save-file-placeholder": "Dejar vacío para usar el nombre predeterminado",
+        "download-file-warning": "La URL que ingrese se accederá directamente para descargar el archivo. Por favor, asegúrese de que proviene de una fuente confiable, ya que no podemos verificar su seguridad.",
+        "upload-unavailable": "Advertencia: Las cargas están desactivadas temporalmente debido a errores de dominio predeterminados. Por favor, inténtelo de nuevo más tarde.",
         "clone-file": "Clonar archivo",
         "clone-file-placeholder": "Ingrese la URL para clonar el archivo",
         "clone-file-warning": "Advertencia: Asegúrese de que la ruta del archivo sea correcta para evitar sobrescribir archivos existentes.",
         "cancelled-by-user": "Cancelado por el usuario",
-        "cancelled" : "Cancelado",
+        "cancelled": "Cancelado",
         "left": "izquierda",
         "exist-title": "El archivo ya existe",
         "apply-to-all": "Aplicar a todos los archivos",
         "replace": "Reemplazar",
         "skip": "Omitir",
         "upload-cancelled": "Carga cancelada",
+        "cancel-all": "Cancelar todas las cargas",
+        "delete-all": "Eliminar todas las cargas",
+        "completed": "Completado",
         "message": {
           "success": "¡Archivo subido con éxito!",
           "error": "¡Error al subir el archivo!",
           "alert": "Una subida está en progreso. Por favor, espera hasta que se complete.",
-          "cancelled": "¡Carga de archivo cancelada!"
+          "cancelled": "¡Carga de archivo cancelada!",
+          "warning": "Se han detectado errores de dominio predeterminados. Por favor, resuélvalos antes de subir archivos."
         }
       }
     },
@@ -3775,7 +4255,8 @@
       "confirm_switch_default": "¿Está seguro de que desea cambiar a Predeterminado?",
       "confirm_unsaved_switch_default": "¿Está seguro de que desea descartar los cambios no guardados y cambiar al modo Predeterminado?",
       "confirm_unsaved_switch_custom": "¿Está seguro de que desea descartar los cambios no guardados y cambiar al modo Personalizado?",
-      "nginx-error-popup": "¡Ups, la prueba de configuración falló!"
+      "nginx-error-popup": "¡Ups, la prueba de configuración falló!",
+      "twig-templating-guide": "Guía de plantillas Twig"
     },
     "php": {
       "title": "Configuraciones de PHP",
@@ -3789,11 +4270,12 @@
       "php_engine_desc": "Cambie la versión de PHP que utiliza su sitio web. Recomendamos usar la última versión de PHP para obtener el mejor rendimiento.",
       "version": "Versión",
       "restart_php": "Reiniciar PHP",
-      "restart_php_desc": "Esto reiniciará el contenedor de PHP, recargará el php.ini y el redis.conf para este sitio y sus dominios adicionales.",
+      "restart_php_desc": "Esto reiniciará el servicio PHP y recargará el php.ini.",
       "restart_button": "Reiniciar",
       "php-settings-updated": "Configuración de PHP actualizada correctamente",
       "error-in-the-config": "Error en la configuración",
       "invalid-php-version-selected": "Versión de PHP seleccionada no válida",
+      "invalid-value": "Valor no válido para la configuración",
       "error-updating-php": "Se produjo un error al actualizar la configuración de PHP",
       "error-fetching-default-php": "Error al obtener la configuración predeterminada de PHP",
       "config-not-available": "Configuración no disponible",
@@ -3868,29 +4350,34 @@
         "save_button": "Guardar",
         "directive_column": "Directiva",
         "settings_column": "Valor",
-        "no_directives_message": "No se agregaron encabezados adicionales"
+        "no_directives_message": "No se han agregado directivas PHP adicionales"
       },
       "php_fpm_block": {
         "title": "Configuraciones de PHP-FPM",
         "pm": "pm",
-        "pm_desc": "Elija cómo el administrador de procesos controlará el número de procesos secundarios. Valores posibles: estático, bajo demanda, dinámico. Esta opción es obligatoria.",
+        "pm_desc": "Define el modo de gestión de procesos: estático, dinámico u ondemand. Determina cómo se crean y gestionan los procesos PHP.",
         "pm_max_children": "pm.max_children",
-        "pm_max_children_desc": "El número de procesos secundarios que se crearán cuando pm esté configurado como estático y el número máximo de procesos secundarios que se crearán cuando pm esté configurado como dinámico.",
+        "pm_max_children_desc": "Establece el límite en el número de solicitudes simultáneas que se atenderán. Crítico para manejar alto tráfico; demasiado bajo puede causar lentitud.",
         "pm_max_requests": "pm.max_requests",
-        "pm_max_requests_desc": "El número de solicitudes que cada proceso secundario debe ejecutar antes de reiniciarse. Esto puede ser útil para solucionar fugas de memoria en bibliotecas de terceros. Para un procesamiento de solicitudes sin fin, especifique '0'. Equivalente a PHP_FCGI_MAX_REQUESTS. Valor predeterminado: 0.",
+        "pm_max_requests_desc": "Especifica cuántas solicitudes maneja cada proceso PHP antes de reiniciarse. Ayuda a prevenir fugas de memoria en scripts de larga duración.",
         "pm_start_servers": "pm.start_servers",
-        "pm_start_servers_desc": "El número de procesos secundarios creados al inicio. Se utiliza solo cuando pm está configurado como dinámico. Valor predeterminado: (min_spare_servers + max_spare_servers) / 2.",
+        "pm_start_servers_desc": "Número de procesos PHP iniciados al iniciar el servicio (modo dinámico). Afecta la rapidez con la que su sitio maneja el tráfico inicial.",
         "pm_min_spare_servers": "pm.min_spare_servers",
-        "pm_min_spare_servers_desc": "El número mínimo deseado de procesos secundarios inactivos. Se utiliza solo cuando pm está configurado como dinámico. También es obligatorio en este caso.",
+        "pm_min_spare_servers_desc": "Número mínimo de procesos PHP inactivos que se deben mantener disponibles (modo dinámico). Asegura un tiempo de respuesta rápido para las solicitudes entrantes.",
         "pm_max_spare_servers": "pm.max_spare_servers",
-        "pm_max_spare_servers_desc": "El número máximo deseado de procesos secundarios inactivos. Se utiliza solo cuando pm está configurado como dinámico. También es obligatorio en este caso.",
-        "numeric_error": "Por favor, introduzca un valor numérico válido."
+        "pm_max_spare_servers_desc": "Número máximo de procesos PHP inactivos permitidos (modo dinámico). Previene el uso excesivo de memoria durante períodos de bajo tráfico.",
+        "numeric_error": "Por favor, introduzca un valor numérico válido.",
+        "required_error": "Este campo es obligatorio. Por favor, introduzca un valor válido."
       },
       "process_manager": {
         "ondemand": "Bajo Demanda",
         "dynamic": "Dinámico",
         "static": "Estático"
-      }
+      },
+      "invalid_memory_limit": "Formato de límite de memoria inválido. Usa un número seguido de K, M o G (por ejemplo, 128M).",
+      "invalid_post_max_size": "Formato de post_max_size inválido. Usa un número seguido de K, M o G (por ejemplo, 8M).",
+      "invalid_upload_max_filesize": "Formato de upload_max_filesize inválido. Usa un número seguido de K, M o G (por ejemplo, 2M).",
+      "invalid_multiple_values": "tienen valores inválidos. Usa valores válidos."
     }
   }
 }
