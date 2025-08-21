@@ -17,6 +17,7 @@ Each file contains key-value pairs used by the application for localization.
 | Spanish    | `es` | Español |
 | Portuguese | `pt` | Português |
 | Russian    | `ru` | Русский |
+| Korean     | `ko` | 한국어 |
 
 ## 📝 Format
 
