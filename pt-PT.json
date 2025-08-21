@@ -16,6 +16,10 @@
   "no-events": "ão há eventos disponíveis.",
   "clear": "Limpar",
   "more-actions": "mais ações",
+  "inherited": "Hereditário",
+  "default": "Predeterminado",
+  "upload": "Subir",
+  "due-to": "devido a",
   "common": {
     "type-here": "Digite aqui",
     "select": "Selecione",
@@ -1357,7 +1361,10 @@
       "plugin-deactivated": "Plugin {{name}} desativado no domínio {{domain}}",
       "theme-activated": "Tema {{name}} ativado no domínio {{domain}}",
       "plugin-deleted": "Plugin {{name}} excluído no domínio {{domain}}",
-      "theme-deleted": "Tema {{name}} excluído no domínio {{domain}}"
+      "theme-deleted": "Tema {{name}} excluído no domínio {{domain}}",
+      "website-delete": "Website {{domain}} do usuário {{user}} foi excluído",
+      "website-status-change": "Website {{domain}} do usuário {{user}} teve o status alterado",
+      "website-created": "Website {{domain}} do usuário {{user}} foi criado"
     },
     "scanner_status": {
       "multiple": "Vários interruptores estão desligados",
@@ -2018,7 +2025,9 @@
       "cleaned": "Limpo",
       "replaced": "Substituído",
       "blocked": "Bloqueado",
-      "loading": "Carregando..."
+      "loading": "Carregando...",
+      "unarchived": "Desarquivado",
+      "archived": "Arquivado"
     }
   },
   "cms-threat-alerts": {
@@ -2087,6 +2096,7 @@
       "critical": "Crítico",
       "enabled": "Habilitado",
       "disabled": "Desabilitado",
+      "latest": "Último",
       "table": {
         "component": "Componente",
         "version": "Versão",
@@ -2130,7 +2140,12 @@
       "active-theme": "O tema está atualmente ativo",
       "refresh-details": "Atualizar detalhes",
       "core-error": "Não foi possível buscar detalhes devido a um erro do WordPress",
-      "common-error": "Houve erros ao buscar detalhes"
+      "common-error": "Houve erros ao buscar detalhes",
+      "queued": "Em fila, por favor aguarde",
+      "cms-not-found": "CMS não disponível",
+      "updated-by-another-user": "Atualizado por outro usuário",
+      "cms-updated-realtime": "Este CMS foi atualizado por outro usuário em tempo real",
+      "cms-deleted": "CMS foi eliminado"
     }
   },
   "db-scanner": {
@@ -2483,7 +2498,9 @@
     "disabled": {
       "title": "Lynis não está habilitado neste servidor",
       "desc": "Lynis é uma ferramenta de auditoria de segurança para sistemas baseados em Unix."
-    }
+    },
+    "critical": "Crítico",
+    "all": "Todos"
   },
   "settings": {
     "title": "Configurações",
@@ -2698,7 +2715,9 @@
       "proactive-process-monitor": "Monitor de processo proativo",
       "proactive-process-monitor-info": "verificar e eliminar periodicamente processos suspeitos em execução sob usuários",
       "block_upload_php_file": "Bloquear upload de arquivos PHP",
-      "block_upload_php_file-info": "Impedir o upload ou a criação de arquivos php por meio de formulários ou scripts"
+      "block_upload_php_file-info": "Impedir o upload ou a criação de arquivos php por meio de formulários ou scripts",
+      "user_mscan_switch-title": "Acesso a escaneamento manual",
+      "user_mscan_switch-desc": "Permitir a usuários iniciar escaneamentos manuais a partir do painel do usuário"
     },
     "wp-cms": {
       "title": "WordPress e CMS",
@@ -2797,84 +2816,84 @@
       "valid-primary-email-required": "Você deve inserir um endereço de email principal válido",
       "failed-to-fetch": "Falha ao buscar as configurações de notificação",
       "daily_weekly_scan": {
-        "title": "Verificação semanal/diária",
-        "desc": "Enviar notificação no Slack ao usuário quando a verificação semanal/diária for concluída"
+        "title": "Verificação Semanal/Diária",
+        "desc": "Enviar notificação do slack quando a verificação semanal/diária for concluída"
       },
       "backup_status": {
-        "title": "Status do backup",
-        "desc": "Enviar notificação no Slack ao usuário quando o backup for concluído"
+        "title": "Status do Backup",
+        "desc": "Enviar notificação do slack quando o backup for concluído"
       },
       "brute_force_status": {
-        "title": "Status de força bruta",
-        "desc": "Enviar notificação no Slack ao usuário quando ataques de força bruta forem detectados"
+        "title": "Status de Força Bruta",
+        "desc": "Enviar notificação do slack quando ataques de força bruta forem detectados"
       },
       "csf_action": {
-        "title": "Ação do CSF",
-        "desc": "Enviar notificação no Slack ao usuário quando uma ação do CSF for aplicada à sua conta"
+        "title": "Ação CSF",
+        "desc": "Enviar notificação do slack quando uma ação CSF for realizada na conta"
       },
       "malware_process": {
-        "title": "Processo suspeito",
-        "desc": "Enviar notificação no Slack ao usuário quando um processo suspeito for detectado"
+        "title": "Processo Suspeito",
+        "desc": "Enviar notificação do slack quando um processo suspeito for detectado"
       },
       "mscan_status": {
-        "title": "Status da verificação manual",
-        "desc": "Enviar notificação no Slack ao usuário quando a verificação manual for concluída"
+        "title": "Status de Verificação Manual",
+        "desc": "Enviar notificação do slack quando a verificação manual for concluída"
       },
       "ipdb_status": {
         "title": "Status do IPDB",
-        "desc": "Enviar notificação no Slack ao usuário quando o status do IPDB for alterado"
+        "desc": "Enviar notificação do slack quando o status do IPDB for alterado"
       },
       "notify_iprep": {
-        "title": "Reputação do IP",
-        "desc": "Enviar notificação no Slack ao usuário quando a reputação do IP for alterada"
+        "title": "Reputação de IP",
+        "desc": "Enviar notificação do slack quando a reputação de IP for alterada"
       },
       "scanner_status": {
-        "title": "Status do scanner",
-        "desc": "Enviar notificação no Slack ao usuário quando o status do scanner for alterado"
+        "title": "Status do Scanner",
+        "desc": "Enviar notificação do slack quando o status do scanner for alterado"
       },
       "services_status": {
-        "title": "Status dos serviços",
-        "desc": "Enviar notificação no Slack ao usuário quando o status dos serviços for alterado"
+        "title": "Status dos Serviços",
+        "desc": "Enviar notificação do slack quando o status dos serviços for alterado"
       },
       "suspend_service": {
-        "title": "Suspensão de conta/domínio",
-        "desc": "Enviar notificação no Slack ao usuário quando uma conta ou domínio for suspenso"
+        "title": "Suspender conta/domínio",
+        "desc": "Enviar notificação do slack quando a conta/domínio for suspensa"
       },
       "suspicious": {
-        "title": "Arquivo suspeito",
-        "desc": "Enviar notificação no Slack ao usuário quando um arquivo suspeito for detectado"
+        "title": "Arquivo Suspeito",
+        "desc": "Enviar notificação do slack quando um arquivo suspeito for detectado"
       },
       "vulnerable_cms": {
-        "title": "CMS vulnerável",
-        "desc": "Enviar notificação no Slack ao usuário quando vulnerabilidades no CMS forem encontradas"
+        "title": "CMS Vulnerável",
+        "desc": "Enviar notificação do slack quando vulnerabilidades de CMS forem encontradas"
       },
       "waf_status": {
         "title": "Status do WAF",
-        "desc": "Enviar notificação no Slack ao usuário quando o status do WAF for alterado"
+        "desc": "Enviar notificação do slack quando o status do WAF for alterado"
       },
       "website_status": {
-        "title": "Status do site",
-        "desc": "Enviar notificação no Slack ao usuário quando o status do site for alterado"
+        "title": "Status do Website",
+        "desc": "Enviar notificação do slack quando o status do website for alterado"
       },
       "wp_patch": {
-        "title": "Correção do WordPress",
-        "desc": "Enviar notificação no Slack ao usuário quando o núcleo, plugin ou tema do WordPress for atualizado, desativado, etc."
+        "title": "Patch do WordPress",
+        "desc": "Enviar notificação do slack quando o núcleo/plugin/tema do WordPress for atualizado, desativado, etc."
       },
       "wp_status": {
         "title": "Status do WordPress",
-        "desc": "Enviar notificação no Slack ao usuário quando um plugin/tema do WordPress for ativado ou desativado, ou quando um arquivo principal for restaurado, etc."
+        "desc": "Enviar notificação do slack quando o plugin/tema do WordPress for ativado ou desativado ou o arquivo principal for restaurado, etc."
       },
       "scanner": {
-        "title": "Arquivos infectados",
-        "desc": "Enviar notificação no Slack ao usuário quando arquivos infectados forem detectados na conta"
+        "title": "Arquivos de Vírus",
+        "desc": "Enviar notificação do slack quando arquivos de vírus forem detectados na conta"
       },
       "binary": {
-        "title": "Arquivos binários",
-        "desc": "Enviar notificação no Slack ao usuário quando arquivos binários forem detectados"
+        "title": "Arquivos Binários",
+        "desc": "Enviar notificação do slack quando arquivos binários forem detectados"
       },
       "license": {
-        "title": "Notificações de licença",
-        "desc": "Enviar notificação no Slack ao usuário quando o status da licença for alterado"
+        "title": "Notificações de Licença",
+        "desc": "Enviar notificação do slack quando o status da licença for alterado"
       }
     },
     "about-page": {
@@ -2970,7 +2989,240 @@
         "exclude-websites": "Excluir Sites",
         "exclude-websites-desc": "Selecione os sites que você não deseja incluir no backup.",
         "no-websites-excluded": "Nenhum site excluído do backup",
-        "schedule-enable": "Pelo menos uma programação deve estar ativada."
+        "schedule-enable": "Pelo menos uma programação deve estar ativada.",
+        "week-day": {
+          "monday": "Segunda-feira",
+          "tuesday": "Terça-feira",
+          "wednesday": "Quarta-feira",
+          "thursday": "Quinta-feira",
+          "friday": "Sexta-feira",
+          "saturday": "Sábado",
+          "sunday": "Domingo"
+        },
+        "1-day-month": "1º dia do mês",
+        "15-day-month": "15º dia do mês",
+        "backup-warning": "Para garantir a segurança dos dados, pelo menos um método de backup deve estar ativo.",
+        "upload": {
+          "title": "Estado de Restauração",
+          "main-title": "Restauração de Backup",
+          "sub-title": "Opções de Restauração",
+          "status-title": "ESTADO",
+          "status": {
+            "uploading": "Carregando",
+            "download": "Baixando",
+            "extract": "Extraindo",
+            "verify": "Verificando",
+            "config": "Restaurando configuração",
+            "files": "Restaurando arquivos",
+            "databases": "Importando bancos de dados",
+            "db-users": "Configurando usuários de DB",
+            "apply": "aplicando",
+            "failed": "falhou",
+            "completed": "completado",
+            "in-progress": "em progresso",
+            "completed-with-issues": "completado com problemas"
+          },
+          "desc": "Envie um arquivo de backup para restaurar seu site.",
+          "file-type": "Tipos de arquivo suportados: .tar, .tar.gz, .tar.bz2, .zip",
+          "upload-success": "Backup enviado com sucesso",
+          "upload-error": "Erro ao enviar o arquivo de backup. Por favor, tente novamente.",
+          "user-exist": "Falha na restauração: O usuário já existe",
+          "user-exist-desc": "A restauração não pode continuar porque o nome de usuário {{user}} já existe neste servidor.",
+          "website-exist": "Falha na restauração: O site já existe",
+          "website-exist-desc": "A restauração não pode continuar porque o site {{website}} já existe neste servidor.",
+          "user-placeholder": "Digite o nome de usuário",
+          "website-failed": "já existe",
+          "restore-success": "Backup restaurado com sucesso",
+          "from-path": "Do Caminho",
+          "from-url": "Do link",
+          "choose-file": "Escolher um arquivo",
+          "from-local-placeholder": "O arquivo selecionado será exibido aqui",
+          "from-url-placeholder": "Digite a URL do arquivo de backup",
+          "from-path-placeholder": "Digite o caminho para o arquivo de backup no servidor",
+          "from-path-desc": "Digite o caminho absoluto para a cópia de segurança ou pasta que deseja restaurar.",
+          "from-local": "Escolha um arquivo do seu computador local para realizar a restauração",
+          "restore-date": "Data de Restauração"
+        },
+        "validation": {
+          "url-too-short": "A URL deve ter pelo menos 10 caracteres",
+          "invalid-url-format": "Por favor, insira um formato de URL válido (ex: https://exemplo.com/arquivo.zip)",
+          "unsupported-file-type": "A URL deve apontar para um tipo de arquivo suportado (.zip, .tar, .tar.gz, .tar.lz4)",
+          "valid-url": "URL de backup válida"
+        },
+        "error": {
+          "invalid-url": "Por favor, insira uma URL de backup válida",
+          "download-error": "Falha ao baixar o backup da URL",
+          "fetch-error": "Falha ao buscar os registros de backup",
+          "delete-error": "Falha ao excluir o registro de backup"
+        },
+        "progress": {
+          "extract": "Extraindo arquivos de backup",
+          "check": "Verificando arquivos de backup",
+          "maintenance-mode": "Ativando modo de manutenção",
+          "website-cleanup": "Limpando arquivos de site existentes",
+          "config": "Restaurando configuração",
+          "restore-files": "Restaurando arquivos do site",
+          "databases": "Restaurando bancos de dados",
+          "db-users": "Restaurando usuários de banco de dados",
+          "database-users": "Usuários de Banco de Dados",
+          "failed_users": "Falha ao restaurar usuários de banco de dados",
+          "apply": "Aplicando alterações",
+          "files": "Restaurando arquivos",
+          "verify": "Verificando arquivos",
+          "uploading": "Fazendo upload de arquivos",
+          "no-status": "Nenhum status de backup disponível",
+          "no-stages": "Nenhuma etapa de backup disponível",
+          "restore-with-issues": "Restauração concluída com problemas",
+          "download": "Baixando arquivo",
+          "reset-password": "Redefinir Senha",
+          "error": {
+            "file-upload-failed": "Falha ao enviar arquivo",
+            "file-input-missing": "Entrada de arquivo ausente",
+            "invalid-file": "Arquivo inválido",
+            "extract-failed": "Falha ao extrair arquivos de backup",
+            "no-website-data": "Nenhum dado de site encontrado no backup",
+            "invalid-backup": "Arquivo de backup inválido",
+            "restore-website-failed": "Falha ao restaurar site",
+            "restore-user-failed": "Falha ao restaurar usuário",
+            "user-domain-mismatch": "Incompatibilidade entre usuário e domínio",
+            "user-not-exists": "Usuário não existe",
+            "website-config-mismatch": "Incompatibilidade de configuração do site",
+            "user-already-exists": "Usuário já existe",
+            "config-restore-failed": "Falha ao restaurar arquivos de configuração",
+            "invalid-config": "Arquivo de configuração inválido",
+            "file-restore-failed": "Falha ao restaurar arquivos do site",
+            "database-restore-failed": "Falha ao restaurar bancos de dados",
+            "invalid-path": "Caminho inválido fornecido",
+            "database-users-file-missing": "Falta o arquivo de usuários da base de dados",
+            "restore-database-users-failed": "Falha ao restaurar os usuários da base de dados",
+            "restore-running": "A restauração está atualmente em execução",
+            "database-user-issues": "Devido às diferenças de autenticação entre {{database}}, algumas contas de usuário foram importadas sem suas senhas originais. Pode ser necessário definir novas senhas manualmente."
+          }
+        },
+        "destinations": {
+          "title": "Destinos adicionais",
+          "empty": "Nenhum destino adicional configurado.",
+          "tooltip": "Validar destino para habilitar",
+          "save": "Salvar Destino",
+          "save-and-validate": "Salvar e Validar",
+          "validation-result": "Resultado da Validação",
+          "validation-result-empty": "Nenhum resultado de validação disponível",
+          "tabs": {
+            "destinations": "Destinos",
+            "create-new": "Criar novo destino",
+            "edit": "Editar destino"
+          },
+          "table": {
+            "destinations": "Destinos",
+            "type": "Tipo"
+          },
+          "actions": {
+            "validate": "Validar",
+            "edit": "Editar",
+            "delete": "Excluir"
+          },
+          "sftp": {
+            "name": "Nome do Destino",
+            "name-placeholder": "Digite o nome do destino",
+            "folder": "Pasta",
+            "folder-placeholder": "Digite o caminho da pasta",
+            "backup-directory": "Diretório de Backup",
+            "backup-directory-placeholder": "Digite o diretório de backup",
+            "host": "Host Remoto",
+            "host-placeholder": "Digite o host remoto ou endereço IP",
+            "port": "Porta Remota",
+            "port-placeholder": "Digite a porta remota",
+            "username": "Nome de Usuário Remoto",
+            "username-placeholder": "Digite o nome de usuário remoto",
+            "password": "Senha Remota",
+            "password-placeholder": "Digite a senha remota",
+            "private-key": "Chave Privada",
+            "private-key-placeholder": "Digite ou selecione o caminho da chave privada",
+            "remotePath": "Caminho Remoto",
+            "remotePath-placeholder": "Digite o caminho remoto",
+            "auth-type": "Tipo de Autenticação",
+            "key-auth": "Autenticação por Chave",
+            "password-auth": "Autenticação por Senha",
+            "passphrase": "Frase Secreta",
+            "passphrase-placeholder": "Digite a frase secreta",
+            "timeout": "Tempo Limite",
+            "timeout-placeholder": "Digite o tempo limite em segundos"
+          },
+          "validations": {
+            "host": {
+              "required": "Host remoto é obrigatório",
+              "invalid": "Host remoto é inválido"
+            },
+            "backup-directory": {
+              "required": "Diretório de Backup é obrigatório",
+              "invalid": "Diretório de Backup é inválido"
+            },
+            "name": {
+              "required": "Nome do Destino é obrigatório",
+              "invalid": "Nome do Destino é inválido"
+            },
+            "port": {
+              "required": "Porta remota é obrigatória",
+              "min": "A porta remota deve ser pelo menos {{min}}",
+              "max": "A porta remota deve ser no máximo {{max}}"
+            },
+            "username": {
+              "required": "O nome de usuário remoto é obrigatório"
+            },
+            "password": {
+              "required": "A senha remota é obrigatória"
+            },
+            "remotePath": {
+              "required": "O caminho remoto é obrigatório"
+            },
+            "passphrase": {
+              "required": "A frase secreta é obrigatória"
+            },
+            "timeout": {
+              "required": "O tempo limite é obrigatório",
+              "min": "O tempo limite deve ser pelo menos 10 segundos",
+              "max": "O tempo limite deve ser no máximo 120 segundos"
+            }
+          },
+          "delete": {
+            "success": "Destino excluído com sucesso",
+            "error": "Erro ao excluir destino",
+            "failed": "Falha ao excluir destino"
+          },
+          "private-key-required": "A chave privada é obrigatória",
+          "edit-error": "Erro ao editar destino",
+          "in-progress": "Em andamento, por favor aguarde...",
+          "save-error": "Erro ao salvar destino",
+          "private-keys": {
+            "empty": "Nenhuma chave privada disponível",
+            "fetch-error": "Erro ao buscar chaves privadas"
+          },
+          "validate": {
+            "success": "Validação em andamento, por favor aguarde...",
+            "completed": "Destino validado com sucesso",
+            "failed": "Falha ao validar destino",
+            "error": "Erro ao validar destino"
+          },
+          "status": {
+            "success": "Status do destino atualizado com sucesso",
+            "failed": "Falha ao atualizar status do destino",
+            "error": "Erro ao atualizar status do destino"
+          },
+          "errors": {
+            "max-sftp-connections": "Máximo de conexões SFTP excedido",
+            "invalid-settings": "Configurações SFTP inválidas",
+            "invalid-port": "Porta SFTP inválida",
+            "invalid-host": "Host SFTP inválido",
+            "invalid-password": "Senha SFTP inválida",
+            "invalid-passphrase": "Frase secreta SFTP inválida",
+            "invalid-credentials": "Credenciais SFTP inválidas",
+            "invalid-username": "Nome de usuário SFTP inválido",
+            "invalid-destination-name": "Nome de destino SFTP inválido",
+            "invalid-backup-directory": "Diretório de backup SFTP inválido",
+            "invalid-configuration": "Configuração SFTP inválida",
+            "fetch-error": "Erro ao buscar destinos"
+          }
+        }
       },
       "errors": {
         "unsupported-version": "Versão do PHP não suportada",
@@ -2989,7 +3241,11 @@
       "success": {
         "fpm-update": "Configurações do FPM atualizadas com sucesso",
         "php-module-update": "Configurações do módulo PHP atualizadas com sucesso",
-        "server-switch": "Servidor web alternado com sucesso"
+        "server-switch": "Servidor web alternado com sucesso",
+        "queued": "Em fila, por favor aguarde"
+      },
+      "php": {
+        "title": "Configurações básicas de PHP INI"
       }
     }
   },
@@ -3274,6 +3530,118 @@
         "apache-start-failed": "Falha ao iniciar o Apache",
         "openlitespeed-start-failed": "Falha ao iniciar o OpenLiteSpeed"
       }
+    },
+    "restore-compressed": {
+      "title": "Restaurando cópia de segurança comprimida",
+      "action": "progress",
+      "stages": {
+        "start": "Restauração iniciada",
+        "closed": "Cópia de segurança comprimida restaurada com sucesso",
+        "failed": "Falha ao restaurar cópia de segurança comprimida",
+        "command-failed": "Falha ao restaurar cópia de segurança comprimida devido a um erro inesperado",
+        "backup-extracted": "Cópia de segurança extraída com sucesso",
+        "backup-extract-failed": "Falha ao extrair a cópia de segurança",
+        "invalid-backup": "Arquivo de cópia de segurança não válido",
+        "extract-failed": "Falha ao extrair o arquivo de cópia de segurança",
+        "restore-failed": "Falha ao restaurar cópia de segurança",
+        "restore-completed": "Cópia de segurança restaurada com sucesso",
+        "maintenance-mode": "Ativando modo de manutenção",
+        "new-user": "Criando novo usuário",
+        "restore-config-failed": "Falha ao restaurar configuração",
+        "config-restored": "Configuração restaurada com sucesso",
+        "restore-files-failed": "Falha ao restaurar arquivos",
+        "files-restored": "Arquivos restaurados com sucesso",
+        "restore-database-failed": "Falha ao restaurar banco de dados",
+        "database-restored": "Banco de dados restaurado com sucesso",
+        "invalid-file": "Formato de arquivo de cópia de segurança inválido",
+        "invalid-directory": "Diretório de cópia de segurança inválido",
+        "restore-uncompressed": "Restaurando cópia de segurança sem compressão",
+        "restore-compressed": "Restaurando cópia de segurança comprimida",
+        "database-users-restored": "Usuários de banco de dados restaurados com sucesso",
+        "restore-database-users-failed": "Falha ao restaurar usuários de banco de dados",
+        "restore-config-completed": "Configuração restaurada com sucesso",
+        "check-completed": "Arquivos de backup verificados com sucesso"
+      }
+    },
+    "restore-uncompressed": {
+      "title": "Restaurando Cópia de Segurança Não Comprimida",
+      "action": "progress",
+      "stages": {
+        "start": "Restauração iniciada",
+        "closed": "Cópia de segurança não comprimida restaurada com sucesso",
+        "failed": "Falha ao restaurar cópia de segurança não comprimida",
+        "command-failed": "Falha ao restaurar cópia de segurança não comprimida devido a um erro inesperado",
+        "backup-extracted": "Cópia de segurança extraída com sucesso",
+        "backup-extract-failed": "Falha ao extrair a cópia de segurança",
+        "invalid-backup": "Arquivo de cópia de segurança não válido",
+        "extract-failed": "Falha ao extrair o arquivo de cópia de segurança",
+        "restore-failed": "Falha ao restaurar cópia de segurança",
+        "restore-completed": "Cópia de segurança restaurada com sucesso",
+        "maintenance-mode": "Ativando modo de manutenção",
+        "new-user": "Criando novo usuário",
+        "restore-config-failed": "Falha ao restaurar configuração",
+        "config-restored": "Configuração restaurada com sucesso",
+        "restore-files-failed": "Falha ao restaurar arquivos",
+        "files-restored": "Arquivos restaurados com sucesso",
+        "restore-database-failed": "Falha ao restaurar banco de dados",
+        "database-restored": "Banco de dados restaurado com sucesso",
+        "invalid-file": "Formato de arquivo de cópia de segurança inválido",
+        "invalid-directory": "Diretório de cópia de segurança inválido",
+        "restore-uncompressed": "Restaurando cópia de segurança não comprimida",
+        "restore-compressed": "Restaurando cópia de segurança comprimida",
+        "database-users-restored": "Usuários de banco de dados restaurados com sucesso",
+        "restore-database-users-failed": "Falha ao restaurar usuários de banco de dados",
+        "restore-user-failed": "Falha ao restaurar usuário",
+        "check-completed": "Arquivos de backup verificados com sucesso",
+        "restore-config-completed": "Configuração restaurada com sucesso"
+      }
+    },
+    "restore-uploaded": {
+      "title": "Restaurando Cópia de Segurança Carregada",
+      "action": "progress",
+      "stages": {
+        "start": "Restauração iniciada",
+        "no-website-data": "Nenhum dado de site encontrado no backup",
+        "website-exist": "O site já existe",
+        "restore-user-failed": "Falha ao restaurar usuário",
+        "maintenance-mode": "Ativando modo de manutenção",
+        "backup-extracted": "Backup extraído com sucesso",
+        "restore-failed": "Falha ao restaurar backup",
+        "restore-completed": "Backup restaurado com sucesso",
+        "database-users-restored": "Usuários de banco de dados restaurados com sucesso",
+        "database-restored": "Banco de dados restaurado com sucesso",
+        "files-restored": "Arquivos restaurados com sucesso",
+        "config-restored": "Configuração restaurada com sucesso",
+        "new-user": "Criando novo usuário",
+        "backup-downloaded": "Backup baixado com sucesso",
+        "extract-failed": "Falha ao extrair arquivo de backup",
+        "restore-website-failed": "Falha ao restaurar site",
+        "restore-config-completed": "Configuração restaurada com sucesso",
+        "check-completed": "Arquivos de backup verificados com sucesso"
+      }
+    },
+    "restore-url": {
+      "title": "Restaurando Backup a partir da URL",
+      "action": "progress",
+      "stages": {
+        "start": "Restauração iniciada",
+        "no-website-data": "Nenhum dado de site encontrado no backup",
+        "website-exist": "O site já existe",
+        "restore-user-failed": "Falha ao restaurar usuário",
+        "maintenance-mode": "Ativando modo de manutenção",
+        "backup-extracted": "Backup extraído com sucesso",
+        "restore-failed": "Falha ao restaurar backup",
+        "restore-completed": "Backup restaurado com sucesso",
+        "database-users-restored": "Usuários de banco de dados restaurados com sucesso",
+        "database-restored": "Banco de dados restaurado com sucesso",
+        "files-restored": "Arquivos restaurados com sucesso",
+        "config-restored": "Configuração restaurada com sucesso",
+        "new-user": "Criando novo usuário",
+        "backup-downloaded": "Backup baixado com sucesso",
+        "extract-failed": "Falha ao extrair arquivo de backup",
+        "restore-config-completed": "Configuração restaurada com sucesso",
+        "check-completed": "Arquivos de backup verificados com sucesso"
+      }
     }
   },
   "services": {
@@ -3293,7 +3661,22 @@
     "start": "Iniciar",
     "stop": "Parar",
     "restart": "Reiniciar",
-    "reload": "Recarregar"
+    "reload": "Recarregar",
+    "failed-to-fetch": "Falha ao buscar lista de serviços",
+    "actions": {
+      "service-not-found": "Serviço não encontrado",
+      "service-already-running": "Serviço já está em execução",
+      "service-already-stopped": "Serviço já está parado",
+      "failed-to-start": "{{service}} falhou ao iniciar o serviço",
+      "failed-to-stop": "{{service}} falhou ao parar o serviço",
+      "failed-to-restart": "{{service}} falhou ao reiniciar o serviço",
+      "failed-to-reload": "{{service}} falhou ao recarregar o serviço",
+      "success-start": "{{service}} iniciado com sucesso",
+      "success-stop": "{{service}} parado com sucesso",
+      "success-restart": "{{service}} reiniciado com sucesso",
+      "success-reload": "{{service}} recarregado com sucesso",
+      "failed-action": "{{service}} falhou ao realizar a ação"
+    }
   },
   "backup": {
     "title": "Backups",
@@ -3335,7 +3718,8 @@
       "status": "Estado",
       "duration": "Duração",
       "size": "Tamanho",
-      "user": "Usuário"
+      "user": "Usuário",
+      "domain-username": "Domínio & Usuário"
     }
   },
   "monitoring": {
@@ -3421,7 +3805,8 @@
         "wordpress-download-failed": "O download do WordPress falhou",
         "wordpress-setup-failed": "A configuração do WordPress falhou",
         "wordpress-version-fetch-failed": "Falha ao buscar a versão do WordPress",
-        "wordpress-version-parse-failed": "Falha ao analisar a versão do WordPress"
+        "wordpress-version-parse-failed": "Falha ao analisar a versão do WordPress",
+        "database-user-creation-failed": "Falha ao criar o usuário do banco de dados"
       }
     },
     "application": {
@@ -3494,7 +3879,7 @@
       "common": {
         "header": "Escolha uma maneira de criar um site",
         "soon": "Em breve",
-        "install": "instalando aplicativo {{type}}",
+        "install": "instalando {{type}}",
         "completed": "Instalação Concluída"
       },
       "errors": {
@@ -3582,6 +3967,15 @@
       "VA": "Ataques de Vírus",
       "hosting": "Hospedagem",
       "DB": "Banco de dados",
+      "blacklisted": "Em lista negra",
+      "not-blacklisted": "ão em lista negra",
+      "table": {
+        "database": "Banco de dados",
+        "size": "Tamanho",
+        "user": "Usuários privilegiados",
+        "actions": "Ações",
+        "users": "Usuários"
+      },
       "status": {
         "active": "Ativo",
         "disabled": "Desativado",
@@ -3911,11 +4305,17 @@
         "error-logs": "Logs de Erro",
         "next": "Próximo",
         "prev": "Anterior",
-        "file-read-error": "Erro ao ler o arquivo de log",
+        "file-read-error": "Não foi possível ler o arquivo de log.",
         "file-rotated": "O arquivo de log foi rotacionado",
         "date-placeholder": "Data de Início - Data de Fim",
-        "file-not-found": "Arquivo de log não encontrado",
-        "unknown-error": "Ocorreu um erro desconhecido ao buscar logs"
+        "file-not-found": "Arquivo de log não disponível",
+        "file-parse-error": "Não foi possível processar o arquivo. Pode estar em um formato inválido ou corrompido.",
+        "unknown-error": "Ocorreu um erro desconhecido ao buscar logs",
+        "table": {
+          "ip": "Endereço IP",
+          "date": "Data",
+          "message": "Mensagem"
+        }
       },
       "ssh": {
         "title": "SSH",
@@ -4379,10 +4779,16 @@
         "dynamic": "Dinâmico",
         "static": "Estático"
       },
+      "dropdown": {
+        "text": "Texto",
+        "boolean": "Booleano"
+      },
       "invalid_memory_limit": "Formato de limite de memória inválido. Use um número seguido de K, M ou G (ex: 128M).",
       "invalid_post_max_size": "Formato de post_max_size inválido. Use um número seguido de K, M ou G (ex: 8M).",
       "invalid_upload_max_filesize": "Formato de upload_max_filesize inválido. Use um número seguido de K, M ou G (ex: 2M).",
-      "invalid_multiple_values": "contêm valores inválidos. Use valores válidos."
+      "invalid_multiple_values": "contêm valores inválidos. Use valores válidos.",
+      "warning": "Há erros na configuração do php/nginx e a configuração não foi carregada. O site pode estar fora do ar.",
+      "dialog-title": "Ops, o teste de configuração falhou!"
     }
   }
 }

@@ -16,6 +16,10 @@
   "no-events": "사용 가능한 이벤트가 없습니다.",
   "clear": "지우기",
   "more-actions": "추가 작업",
+  "inherited": "상속됨",
+  "default": "기본값",
+  "upload": "업로드",
+  "due-to": "때문에",
   "common": {
     "type-here": "여기에 입력하세요",
     "select": "선택",
@@ -608,10 +612,11 @@
   },
   "language": {
     "label": "언어 선택",
-    "english": "영어",
-    "spanish": "스페인어",
-    "portuguese": "포르투갈어",
-    "russian": "러시아어"
+    "english": "English",
+    "spanish": "español",
+    "portuguese": "Portugués",
+    "russian": "Русский",
+    "korean": "한국어"
   },
   "notifications": {
     "common": {
@@ -1371,7 +1376,10 @@
       "plugin-deactivated": "도메인 {{domain}}에서 플러그인 {{name}}이 비활성화되었습니다",
       "theme-activated": "도메인 {{domain}}에서 테마 {{name}}이 활성화되었습니다",
       "plugin-deleted": "도메인 {{domain}}에서 플러그인 {{name}}이 삭제되었습니다",
-      "theme-deleted": "도메인 {{domain}}에서 테마 {{name}}이 삭제되었습니다"
+      "theme-deleted": "도메인 {{domain}}에서 테마 {{name}}이 삭제되었습니다",
+      "website-delete": "도메인 {{domain}}의 웹사이트가 삭제되었습니다",
+      "website-status-change": "도메인 {{domain}}의 웹사이트 상태가 변경되었습니다",
+      "website-created": "도메인 {{domain}}의 웹사이트가 생성되었습니다"
     },
     "scanner_status": {
       "multiple": "여러 스위치가 꺼져 있습니다",
@@ -1423,7 +1431,7 @@
     "websites": "웹사이트",
     "monitoring": "시스템 모니터링",
     "backup": "백업",
-    "lynis": "Lynis Logs"
+    "lynis": "Lynis 감사"
   },
   "header": {
     "switch-server": "서버로 이동...",
@@ -1684,7 +1692,7 @@
     "tile-threat": "차단된 위협",
     "tile-attacks": "차단된 공격",
     "tile-overview": "공격 개요",
-    "tile-overview-desc": "There is a {{value}}% decrease",
+    "tile-overview-desc": "차단된 공격이 지난달에 비해 {{value}}% 감소했습니다.",
     "tile-quarantine": "격리된 파일",
     "tile-scnner": "스캐너",
     "tile-web": "웹 보호",
@@ -2031,7 +2039,9 @@
       "cleaned": "정리됨",
       "replaced": "교체됨",
       "blocked": "차단됨",
-      "loading": "로딩 중..."
+      "loading": "로딩 중...",
+      "unarchived": "해제됨",
+      "archived": "아카이브됨"
     }
   },
   "cms-threat-alerts": {
@@ -2089,7 +2099,7 @@
       "themes": "테마",
       "vulnerabilities": "취약점",
       "no-dismissed-threats": "해제된 위협이 없습니다",
-      "wp-cron": "WordPress Cron",
+      "wp-cron": "워드프레스 크론",
       "cvss-score": "CVSS 점수",
       "remediation": "수정",
       "safe": "안전",
@@ -2100,6 +2110,7 @@
       "critical": "치명적",
       "enabled": "활성화됨",
       "disabled": "비활성화됨",
+      "latest": "최신",
       "table": {
         "component": "구성 요소",
         "version": "버전",
@@ -2146,7 +2157,12 @@
       "active-theme": "테마가 현재 활성화되어 있습니다.",
       "refresh-details": "세부정보 새로 고침",
       "core-error": "WordPress 오류로 인해 세부정보를 가져올 수 없습니다.",
-      "common-error": "세부정보를 가져오는 동안 오류가 발생했습니다."
+      "common-error": "세부정보를 가져오는 동안 오류가 발생했습니다.",
+      "queued": "대기 중입니다. 잠시만 기다려 주십시오.",
+      "cms-not-found": "CMS를 찾을 수 없습니다.",
+      "updated-by-another-user": "다른 사용자가 업데이트했습니다.",
+      "cms-updated-realtime": "이 CMS는 다른 사용자에 의해 실시간으로 업데이트되었습니다.",
+      "cms-deleted": "CMS가 삭제되었습니다."
     }
   },
   "db-scanner": {
@@ -2214,7 +2230,7 @@
     }
   },
   "ipdb": {
-    "title": "IPDB Blocked stats",
+    "title": "IPDB 차단 통계",
     "ipdb-live-monitor-desc": "차단된 IP의 연결에 대한 실시간 로그입니다.",
     "desc": "마지막으로 새로 고침된 시간: {{last_reload}}",
     "btn-check-ip": "IP 주소 확인",
@@ -2230,7 +2246,7 @@
       "towards": "대상",
       "at": "시간"
     },
-    "ipdb-live-monitor": "IPDB Live monitor",
+    "ipdb-live-monitor": "IPDB 실시간 모니터",
     "error": {
       "live-monitor": "실시간 모니터를 로드할 수 없습니다. 문제가 발생했습니다. 다시 시도하십시오.",
       "btn": "지금 재시도"
@@ -2500,7 +2516,9 @@
     "disabled": {
       "title": "이 서버에서 Lynis가 활성화되어 있지 않습니다",
       "desc": "Lynis는 Unix 기반 시스템을 위한 보안 감사 도구입니다."
-    }
+    },
+    "critical": "치명적",
+    "all": "모두"
   },
   "settings": {
     "title": "설정",
@@ -2715,7 +2733,9 @@
       "anonymous-error-info": "cPGuard 오류 보고 서버로 보고서를 전송합니다",
       "language-dropdown": "cPGuard UI 언어",
       "language-dropdown-info": "cPGuard 인터페이스에 사용할 언어를 선택하세요",
-      "daily-scan-sub-head": "wp-cron.php 실행 간격"
+      "daily-scan-sub-head": "wp-cron.php 실행 간격",
+      "user_mscan_switch-title": "수동 스캔 액세스",
+      "user_mscan_switch-desc": "사용자가 사용자 패널에서 수동 스캔을 시작할 수 있도록 허용"
     },
     "wp-cms": {
       "title": "WordPress 및 CMS",
@@ -2815,83 +2835,83 @@
       "failed-to-fetch": "Slack 알림 설정을 가져오지 못했습니다",
       "daily_weekly_scan": {
         "title": "주간/일일 스캔",
-        "desc": "주간/일일 스캔이 완료되면 사용자에게 Slack 알림 전송"
+        "desc": "주간/일일 스캔이 완료되면 Slack 알림 전송"
       },
       "backup_status": {
         "title": "백업 상태",
-        "desc": "백업이 완료되면 사용자에게 Slack 알림 전송"
+        "desc": "백업이 완료되면 Slack 알림 전송"
       },
       "brute_force_status": {
         "title": "무차별 대입 공격 상태",
-        "desc": "무차별 대입 공격이 탐지되면 사용자에게 Slack 알림 전송"
+        "desc": "무차별 대입 공격이 탐지되면 Slack 알림 전송"
       },
       "csf_action": {
         "title": "CSF 작업",
-        "desc": "사용자 계정에서 CSF 작업이 수행되면 사용자에게 Slack 알림 전송"
+        "desc": "CSF 작업이 계정에서 수행되면 Slack 알림 전송"
       },
       "malware_process": {
         "title": "의심스러운 프로세스",
-        "desc": "의심스러운 프로세스가 탐지되면 사용자에게 Slack 알림 전송"
+        "desc": "의심스러운 프로세스가 탐지되면 Slack 알림 전송"
       },
       "mscan_status": {
         "title": "수동 스캔 상태",
-        "desc": "수동 스캔이 종료되면 사용자에게 Slack 알림 전송"
+        "desc": "수동 스캔이 종료되면 Slack 알림 전송"
       },
       "ipdb_status": {
         "title": "IPDB 상태",
-        "desc": "IPDB 상태가 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "IPDB 상태가 변경되면 Slack 알림 전송"
       },
       "notify_iprep": {
         "title": "IP 평판",
-        "desc": "IP 평판이 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "IP 평판이 변경되면 Slack 알림 전송"
       },
       "scanner_status": {
         "title": "스캐너 상태",
-        "desc": "스캐너 상태가 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "스캐너 상태가 변경되면 Slack 알림 전송"
       },
       "services_status": {
         "title": "서비스 상태",
-        "desc": "서비스 상태가 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "서비스 상태가 변경되면 Slack 알림 전송"
       },
       "suspend_service": {
         "title": "계정/도메인 정지",
-        "desc": "계정/도메인이 정지되면 사용자에게 Slack 알림 전송"
+        "desc": "계정/도메인이 정지되면 Slack 알림 전송"
       },
       "suspicious": {
         "title": "의심스러운 파일",
-        "desc": "의심스러운 파일이 탐지되면 사용자에게 Slack 알림 전송"
+        "desc": "의심스러운 파일이 탐지되면 Slack 알림 전송"
       },
       "vulnerable_cms": {
         "title": "취약한 CMS",
-        "desc": "CMS 취약점이 발견되면 사용자에게 Slack 알림 전송"
+        "desc": "CMS 취약점이 발견되면 Slack 알림 전송"
       },
       "waf_status": {
         "title": "WAF 상태",
-        "desc": "WAF 상태가 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "WAF 상태가 변경되면 Slack 알림 전송"
       },
       "website_status": {
         "title": "웹사이트 상태",
-        "desc": "웹사이트 상태가 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "웹사이트 상태가 변경되면 Slack 알림 전송"
       },
       "wp_patch": {
         "title": "WordPress 패치",
-        "desc": "WordPress 코어/플러그인/테마가 업데이트, 비활성화 등 될 때 사용자에게 Slack 알림 전송"
+        "desc": "WordPress 코어/플러그인/테마가 업데이트, 비활성화 등 될 때 Slack 알림 전송"
       },
       "wp_status": {
         "title": "WordPress 상태",
-        "desc": "WordPress 플러그인/테마가 활성화 또는 비활성화되거나 코어 파일이 복원될 때 사용자에게 Slack 알림 전송"
+        "desc": "WordPress 플러그인/테마가 활성화 또는 비활성화되거나 코어 파일이 복원될 때 Slack 알림 전송"
       },
       "scanner": {
         "title": "바이러스 파일",
-        "desc": "계정에서 바이러스 파일이 탐지되면 사용자에게 Slack 알림 전송"
+        "desc": "계정에서 바이러스 파일이 탐지되면 Slack 알림 전송"
       },
       "binary": {
         "title": "이진 파일",
-        "desc": "계정에서 이진 파일이 탐지되면 사용자에게 Slack 알림 전송"
+        "desc": "이진 파일이 탐지되면 Slack 알림 전송"
       },
       "license": {
         "title": "라이선스 알림",
-        "desc": "라이선스 상태가 변경되면 사용자에게 Slack 알림 전송"
+        "desc": "라이선스 상태가 변경되면 Slack 알림 전송"
       }
     },
     "about-page": {
@@ -2987,7 +3007,240 @@
         "exclude-websites": "제외할 웹사이트",
         "exclude-websites-desc": "백업에서 제외할 웹사이트를 선택하세요.",
         "no-websites-excluded": "제외된 웹사이트 없음",
-        "schedule-enable": "최소 하나의 백업 스케줄이 활성화되어야 합니다."
+        "schedule-enable": "최소 하나의 백업 스케줄이 활성화되어야 합니다.",
+        "week-day": {
+          "monday": "월요일",
+          "tuesday": "화요일",
+          "wednesday": "수요일",
+          "thursday": "목요일",
+          "friday": "금요일",
+          "saturday": "토요일",
+          "sunday": "일요일"
+        },
+        "1-day-month": "매월 1일",
+        "15-day-month": "매월 15일",
+        "backup-warning": "데이터 안전성을 보장하기 위해 최소 하나의 백업 방법이 활성화되어야 합니다.",
+        "upload": {
+          "title": "복원 상태",
+          "main-title": "백업 복원",
+          "sub-title": "복원 옵션",
+          "status-title": "상태",
+          "status": {
+            "uploading": "업로드 중",
+            "download": "다운로드 중",
+            "extract": "추출 중",
+            "verify": "검증 중",
+            "config": "구성 복원 중",
+            "files": "파일 복원 중",
+            "databases": "데이터베이스 가져오는 중",
+            "db-users": "DB 사용자 설정 중",
+            "apply": "적용 중",
+            "failed": "실패",
+            "completed": "완료",
+            "in-progress": "진행 중",
+            "completed-with-issues": "문제가 있는 완료"
+          },
+          "desc": "웹사이트를 복원하기 위해 백업 파일을 업로드합니다.",
+          "file-type": "지원되는 파일 형식: .tar, .tar.gz, .tar.bz2, .zip",
+          "upload-success": "백업이 성공적으로 업로드되었습니다.",
+          "upload-error": "백업 파일 업로드 중 오류가 발생했습니다. 다시 시도해 주세요.",
+          "user-exist": "복원 실패: 사용자가 이미 존재합니다",
+          "user-exist-desc": "이 서버에 사용자 이름 {{user}}이(가) 이미 존재하여 복원을 계속할 수 없습니다.",
+          "website-exist": "복원 실패: 웹사이트가 이미 존재합니다",
+          "website-exist-desc": "이 서버에 웹사이트 {{website}}이(가) 이미 존재하여 복원을 계속할 수 없습니다.",
+          "user-placeholder": "사용자 이름 입력",
+          "website-failed": "이미 존재합니다.",
+          "restore-success": "백업이 성공적으로 복원되었습니다.",
+          "from-path": "경로에서",
+          "from-url": "링크에서",
+          "choose-file": "파일 선택",
+          "from-local-placeholder": "선택한 파일이 여기에 표시됩니다",
+          "from-url-placeholder": "백업 파일의 URL을 입력하세요",
+          "from-path-placeholder": "서버의 백업 파일 경로를 입력하세요",
+          "from-path-desc": "복원할 백업 또는 폴더의 절대 경로를 입력하세요.",
+          "from-local": "로컬 컴퓨터에서 파일을 선택하여 복원",
+          "restore-date": "복원 날짜"
+        },
+        "validation": {
+          "url-too-short": "URL은 최소 10자 이상이어야 합니다",
+          "invalid-url-format": "유효한 URL 형식(예: https://example.com/file.zip)을 입력하세요",
+          "unsupported-file-type": "URL은 지원되는 파일 형식(.zip, .tar, .tar.gz, .tar.lz4)을 가리켜야 합니다",
+          "valid-url": "유효한 백업 URL"
+        },
+        "error": {
+          "invalid-url": "유효한 백업 URL을 입력하세요",
+          "download-error": "URL에서 백업을 다운로드하지 못했습니다",
+          "fetch-error": "백업 로그를 가져오는 데 실패했습니다",
+          "delete-error": "백업 로그를 삭제하는 데 실패했습니다"
+        },
+        "progress": {
+          "extract": "백업 파일 추출 중",
+          "check": "백업 파일 확인 중",
+          "maintenance-mode": "유지 관리 모드 활성화 중",
+          "website-cleanup": "기존 웹사이트 파일 정리 중",
+          "config": "구성 복원 중",
+          "restore-files": "웹사이트 파일 복원 중",
+          "databases": "데이터베이스 복원 중",
+          "db-users": "데이터베이스 사용자 복원 중",
+          "database-users": "데이터베이스 사용자",
+          "failed_users": "데이터베이스 사용자 복원 실패",
+          "apply": "변경 사항 적용 중",
+          "files": "웹사이트 파일 복원 중",
+          "verify": "웹사이트 파일 검증 중",
+          "uploading": "백업 파일 업로드 중",
+          "no-status": "백업 상태가 없습니다",
+          "no-stages": "백업 단계가 없습니다",
+          "restore-with-issues": "복원이 문제와 함께 완료되었습니다",
+          "download": "파일 다운로드 중",
+          "reset-password": "비밀번호 재설정",
+          "error": {
+            "file-upload-failed": "파일 업로드 실패",
+            "file-input-missing": "파일 입력이 누락되었습니다",
+            "invalid-file": "유효하지 않은 파일",
+            "extract-failed": "백업 파일 추출 실패",
+            "no-website-data": "백업에서 웹사이트 데이터를 찾을 수 없습니다",
+            "invalid-backup": "유효하지 않은 백업 파일",
+            "restore-website-failed": "웹사이트 복원 실패",
+            "restore-user-failed": "사용자 복원 실패",
+            "user-domain-mismatch": "사용자와 도메인 불일치",
+            "user-not-exists": "사용자가 존재하지 않습니다",
+            "website-config-mismatch": "웹사이트 구성 불일치",
+            "user-already-exists": "사용자가 이미 존재합니다",
+            "config-restore-failed": "구성 파일 복원 실패",
+            "invalid-config": "유효하지 않은 구성 파일",
+            "file-restore-failed": "웹사이트 파일 복원 실패",
+            "database-restore-failed": "데이터베이스 복원 실패",
+            "invalid-path": "유효하지 않은 경로",
+            "database-users-file-missing": "데이터베이스 사용자 파일이 누락되었습니다",
+            "restore-database-users-failed": "데이터베이스 사용자 복원에 실패했습니다",
+            "restore-running": "복원이 현재 실행 중입니다",
+            "database-user-issues": "{{database}} 간의 인증 방식 차이로 인해 일부 사용자 계정이 원래 비밀번호 없이 가져와졌습니다. 새 비밀번호를 수동으로 설정해야 할 수 있습니다."
+          }
+        },
+        "destinations": {
+          "title": "추가 대상",
+          "empty": "구성된 추가 대상이 없습니다.",
+          "tooltip": "대상을 유효화하여 활성화",
+          "save": "대상 저장",
+          "save-and-validate": "저장 및 유효성 검사",
+          "validation-result": "유효성 검사 결과",
+          "validation-result-empty": "유효성 검사 결과가 없습니다.",
+          "tabs": {
+            "destinations": "대상",
+            "create-new": "새 대상 만들기",
+            "edit": "대상 편집"
+          },
+          "table": {
+            "destinations": "대상",
+            "type": "유형"
+          },
+          "actions": {
+            "validate": "유효성 검사",
+            "edit": "편집",
+            "delete": "삭제"
+          },
+          "sftp": {
+            "name": "대상 이름",
+            "name-placeholder": "대상 이름 입력",
+            "folder": "폴더",
+            "folder-placeholder": "폴더 경로 입력",
+            "backup-directory": "백업 디렉토리",
+            "backup-directory-placeholder": "백업 디렉토리 입력",
+            "host": "원격 호스트",
+            "host-placeholder": "원격 호스트 또는 IP 주소 입력",
+            "port": "원격 포트",
+            "port-placeholder": "원격 포트 입력",
+            "username": "원격 사용자 이름",
+            "username-placeholder": "원격 사용자 이름 입력",
+            "password": "원격 비밀번호",
+            "password-placeholder": "원격 비밀번호 입력",
+            "private-key": "개인 키",
+            "private-key-placeholder": "개인 키 경로 입력 또는 선택",
+            "remotePath": "원격 경로",
+            "remotePath-placeholder": "원격 경로 입력",
+            "auth-type": "인증 유형",
+            "key-auth": "키 인증",
+            "password-auth": "비밀번호 인증",
+            "passphrase": "암호 구문",
+            "passphrase-placeholder": "암호 구문 입력",
+            "timeout": "타임아웃",
+            "timeout-placeholder": "초 단위로 타임아웃 입력"
+          },
+          "validations": {
+            "host": {
+              "required": "원격 호스트가 필요합니다",
+              "invalid": "원격 호스트가 유효하지 않습니다"
+            },
+            "backup-directory": {
+              "required": "백업 디렉토리가 필요합니다",
+              "invalid": "백업 디렉토리가 유효하지 않습니다"
+            },
+            "name": {
+              "required": "대상 이름이 필요합니다",
+              "invalid": "대상 이름이 유효하지 않습니다"
+            },
+            "port": {
+              "required": "원격 포트가 필요합니다",
+              "min": "원격 포트는 최소 {{min}} 이상이어야 합니다",
+              "max": "원격 포트는 최대 {{max}} 이하이어야 합니다"
+            },
+            "username": {
+              "required": "원격 사용자 이름이 필요합니다"
+            },
+            "password": {
+              "required": "원격 비밀번호가 필요합니다"
+            },
+            "remotePath": {
+              "required": "원격 경로가 필요합니다"
+            },
+            "passphrase": {
+              "required": "암호 구문이 필요합니다"
+            },
+            "timeout": {
+              "required": "타임아웃이 필요합니다",
+              "min": "타임아웃은 최소 10초 이상이어야 합니다",
+              "max": "타임아웃은 최대 120초 이하이어야 합니다"
+            }
+          },
+          "delete": {
+            "success": "대상 삭제 성공",
+            "error": "대상 삭제 중 오류 발생",
+            "failed": "대상 삭제 실패"
+          },
+          "private-key-required": "개인 키가 필요합니다",
+          "edit-error": "대상 편집 중 오류 발생",
+          "in-progress": "진행 중입니다. 잠시 기다려 주십시오...",
+          "save-error": "대상 저장 중 오류 발생",
+          "private-keys": {
+            "empty": "사용 가능한 개인 키가 없습니다",
+            "fetch-error": "개인 키 가져오기 오류"
+          },
+          "validate": {
+            "success": "유효성 검사 진행 중입니다. 잠시 기다려 주십시오...",
+            "completed": "대상 유효성 검사 성공",
+            "failed": "대상 유효성 검사 실패",
+            "error": "대상 유효성 검사 중 오류 발생"
+          },
+          "status": {
+            "success": "대상 상태 업데이트 성공",
+            "failed": "대상 상태 업데이트 실패",
+            "error": "대상 상태 업데이트 중 오류 발생"
+          },
+          "errors": {
+            "max-sftp-connections": "최대 SFTP 연결 수 초과",
+            "invalid-settings": "잘못된 SFTP 설정",
+            "invalid-port": "잘못된 SFTP 포트",
+            "invalid-host": "잘못된 SFTP 호스트",
+            "invalid-password": "잘못된 SFTP 비밀번호",
+            "invalid-passphrase": "잘못된 SFTP 암호 구문",
+            "invalid-credentials": "잘못된 SFTP 자격 증명",
+            "invalid-username": "잘못된 SFTP 사용자 이름",
+            "invalid-destination-name": "잘못된 SFTP 대상 이름",
+            "invalid-backup-directory": "잘못된 SFTP 백업 디렉토리",
+            "invalid-configuration": "잘못된 SFTP 구성",
+            "fetch-error": "대상 가져오기 오류"
+          }
+        }
       },
       "errors": {
         "unsupported-version": "지원되지 않는 PHP 버전",
@@ -3006,7 +3259,11 @@
       "success": {
         "fpm-update": "FPM 설정이 성공적으로 업데이트되었습니다",
         "php-module-update": "PHP 모듈 설정이 성공적으로 업데이트되었습니다",
-        "server-switch": "웹서버가 성공적으로 전환되었습니다"
+        "server-switch": "웹서버가 성공적으로 전환되었습니다",
+        "queued": "대기 중입니다. 잠시 기다려 주십시오."
+      },
+      "php": {
+        "title": "PHP INI 기본 설정"
       }
     }
   },
@@ -3291,6 +3548,118 @@
         "apache-start-failed": "Apache 시작 실패",
         "openlitespeed-start-failed": "OpenLiteSpeed 시작 실패"
       }
+    },
+    "restore-compressed": {
+      "title": "압축된 백업 복원 중",
+      "action": "progress",
+      "stages": {
+        "start": "복원 시작됨",
+        "closed": "압축된 백업이 성공적으로 복원되었습니다",
+        "failed": "압축된 백업 복원에 실패했습니다",
+        "command-failed": "예상치 못한 오류로 압축된 백업 복원에 실패했습니다",
+        "backup-extracted": "백업이 성공적으로 추출되었습니다",
+        "backup-extract-failed": "백업 추출에 실패했습니다",
+        "invalid-backup": "유효하지 않은 백업 파일",
+        "extract-failed": "백업 파일 추출에 실패했습니다",
+        "restore-failed": "백업 복원에 실패했습니다",
+        "restore-completed": "백업이 성공적으로 복원되었습니다",
+        "maintenance-mode": "유지 관리 모드 활성화 중",
+        "new-user": "새 사용자 생성 중",
+        "restore-config-failed": "구성 복원에 실패했습니다",
+        "config-restored": "구성이 성공적으로 복원되었습니다",
+        "restore-files-failed": "파일 복원에 실패했습니다",
+        "files-restored": "파일이 성공적으로 복원되었습니다",
+        "restore-database-failed": "데이터베이스 복원에 실패했습니다",
+        "database-restored": "데이터베이스가 성공적으로 복원되었습니다",
+        "invalid-file": "유효하지 않은 백업 파일 형식",
+        "invalid-directory": "유효하지 않은 백업 디렉토리",
+        "restore-uncompressed": "복원 중인 비압축 백업",
+        "restore-compressed": "복원 중인 압축 백업",
+        "database-users-restored": "데이터베이스 사용자가 성공적으로 복원되었습니다",
+        "restore-database-users-failed": "데이터베이스 사용자 복원에 실패했습니다",
+        "restore-config-completed": "구성이 성공적으로 복원되었습니다",
+        "check-completed": "백업 파일이 성공적으로 확인되었습니다"
+      }
+    },
+    "restore-uncompressed": {
+      "title": "비압축 백업 복원 중",
+      "action": "progress",
+      "stages": {
+        "start": "복원 시작됨",
+        "closed": "비압축 백업이 성공적으로 복원되었습니다",
+        "failed": "비압축 백업 복원에 실패했습니다",
+        "command-failed": "예상치 못한 오류로 비압축 백업 복원에 실패했습니다",
+        "backup-extracted": "백업이 성공적으로 추출되었습니다",
+        "backup-extract-failed": "백업 추출에 실패했습니다",
+        "invalid-backup": "유효하지 않은 백업 파일",
+        "extract-failed": "백업 파일 추출에 실패했습니다",
+        "restore-failed": "백업 복원에 실패했습니다",
+        "restore-completed": "백업이 성공적으로 복원되었습니다",
+        "maintenance-mode": "유지 관리 모드 활성화 중",
+        "new-user": "새 사용자 생성 중",
+        "restore-config-failed": "구성 복원에 실패했습니다",
+        "config-restored": "구성이 성공적으로 복원되었습니다",
+        "restore-files-failed": "파일 복원에 실패했습니다",
+        "files-restored": "파일이 성공적으로 복원되었습니다",
+        "restore-database-failed": "데이터베이스 복원에 실패했습니다",
+        "database-restored": "데이터베이스가 성공적으로 복원되었습니다",
+        "invalid-file": "유효하지 않은 백업 파일 형식",
+        "invalid-directory": "유효하지 않은 백업 디렉토리",
+        "restore-uncompressed": "비압축 백업 복원 중",
+        "restore-compressed": "압축된 백업 복원 중",
+        "database-users-restored": "데이터베이스 사용자가 성공적으로 복원되었습니다",
+        "restore-database-users-failed": "데이터베이스 사용자 복원에 실패했습니다",
+        "restore-user-failed": "사용자 복원에 실패했습니다",
+        "check-completed": "백업 파일이 성공적으로 확인되었습니다",
+        "restore-config-completed": "구성이 성공적으로 복원되었습니다"
+      }
+    },
+    "restore-uploaded": {
+      "title": "업로드된 백업 복원 중",
+      "action": "progress",
+      "stages": {
+        "start": "복원 시작됨",
+        "no-website-data": "백업에서 웹사이트 데이터가 발견되지 않음",
+        "website-exist": "웹사이트가 이미 존재함",
+        "restore-user-failed": "사용자 복원에 실패함",
+        "maintenance-mode": "유지 관리 모드 활성화 중",
+        "backup-extracted": "백업이 성공적으로 추출되었습니다",
+        "restore-failed": "백업 복원에 실패했습니다",
+        "restore-completed": "백업이 성공적으로 복원되었습니다",
+        "database-users-restored": "데이터베이스 사용자가 성공적으로 복원되었습니다",
+        "database-restored": "데이터베이스가 성공적으로 복원되었습니다",
+        "files-restored": "파일이 성공적으로 복원되었습니다",
+        "config-restored": "구성이 성공적으로 복원되었습니다",
+        "new-user": "새 사용자 생성 중",
+        "backup-downloaded": "백업이 성공적으로 다운로드되었습니다",
+        "extract-failed": "백업 파일 추출에 실패했습니다",
+        "restore-website-failed": "웹사이트 복원에 실패했습니다",
+        "restore-config-completed": "구성이 성공적으로 복원되었습니다",
+        "check-completed": "백업 파일이 성공적으로 확인되었습니다"
+      }
+    },
+    "restore-url": {
+      "title": "URL에서 백업 복원 중",
+      "action": "progress",
+      "stages": {
+        "start": "복원 시작됨",
+        "no-website-data": "백업에서 웹사이트 데이터가 발견되지 않음",
+        "website-exist": "웹사이트가 이미 존재함",
+        "restore-user-failed": "사용자 복원에 실패함",
+        "maintenance-mode": "유지 관리 모드 활성화 중",
+        "backup-extracted": "백업이 성공적으로 추출되었습니다",
+        "restore-failed": "백업 복원에 실패했습니다",
+        "restore-completed": "백업이 성공적으로 복원되었습니다",
+        "database-users-restored": "데이터베이스 사용자가 성공적으로 복원되었습니다",
+        "database-restored": "데이터베이스가 성공적으로 복원되었습니다",
+        "files-restored": "파일이 성공적으로 복원되었습니다",
+        "config-restored": "구성이 성공적으로 복원되었습니다",
+        "new-user": "새 사용자 생성 중",
+        "backup-downloaded": "백업이 성공적으로 다운로드되었습니다",
+        "extract-failed": "백업 파일 추출에 실패했습니다",
+        "restore-config-completed": "구성이 성공적으로 복원되었습니다",
+        "check-completed": "백업 파일이 성공적으로 확인되었습니다"
+      }
     }
   },
   "services": {
@@ -3310,7 +3679,22 @@
     "start": "시작",
     "stop": "중지",
     "restart": "재시작",
-    "reload": "다시 불러오기"
+    "reload": "다시 불러오기",
+    "failed-to-fetch": "서비스 목록을 가져오는 데 실패했습니다",
+    "actions": {
+      "service-not-found": "서비스를 찾을 수 없습니다",
+      "service-already-running": "서비스가 이미 실행 중입니다",
+      "service-already-stopped": "서비스가 이미 중지되었습니다",
+      "failed-to-start": "{{service}} 서비스를 시작하지 못했습니다",
+      "failed-to-stop": "{{service}} 서비스를 중지하지 못했습니다",
+      "failed-to-restart": "{{service}} 서비스를 재시작하지 못했습니다",
+      "failed-to-reload": "{{service}} 서비스를 다시 불러오지 못했습니다",
+      "success-start": "{{service}} 서비스가 성공적으로 시작되었습니다",
+      "success-stop": "{{service}} 서비스가 성공적으로 중지되었습니다",
+      "success-restart": "{{service}} 서비스가 성공적으로 재시작되었습니다",
+      "success-reload": "{{service}} 서비스가 성공적으로 다시 불러와졌습니다",
+      "failed-action": "{{service}} 서비스에서 작업을 수행하지 못했습니다"
+    }
   },
   "backup": {
     "title": "백업",
@@ -3352,7 +3736,8 @@
       "date": "날짜",
       "status": "상태",
       "duration": "소요 시간",
-      "size": "크기"
+      "size": "크기",
+      "domain-username": "도메인 & 사용자"
     }
   },
   "monitoring": {
@@ -3438,7 +3823,8 @@
         "wordpress-download-failed": "워드프레스 다운로드에 실패했습니다",
         "wordpress-setup-failed": "워드프레스 설정에 실패했습니다",
         "wordpress-version-fetch-failed": "워드프레스 버전 정보를 가져오지 못했습니다",
-        "wordpress-version-parse-failed": "워드프레스 버전 분석에 실패했습니다"
+        "wordpress-version-parse-failed": "워드프레스 버전 분석에 실패했습니다",
+        "database-user-creation-failed": "데이터베이스 사용자 생성에 실패했습니다"
       }
     },
     "application": {
@@ -3511,7 +3897,7 @@
       "common": {
         "header": "웹사이트를 생성하는 방식을 선택하세요",
         "soon": "곧 출시 예정",
-        "install": "{{type}} 애플리케이션 설치 중",
+        "install": "설치 중 {{type}}",
         "completed": "설치 완료됨"
       },
       "errors": {
@@ -3602,6 +3988,15 @@
       "VA": "바이러스 공격",
       "hosting": "호스팅",
       "DB": "데이터베이스",
+      "blacklisted": "블랙리스트",
+      "not-blacklisted": "블랙리스트 아님",
+      "table": {
+        "database": "데이터베이스",
+        "size": "크기",
+        "user": "권한 있는 사용자",
+        "actions": "작업",
+        "users": "사용자"
+      },
       "status": {
         "active": "활성",
         "disabled": "비활성화됨",
@@ -3930,11 +4325,17 @@
         "error-logs": "오류 로그",
         "next": "다음",
         "prev": "이전",
-        "file-read-error": "로그 파일 읽기 오류",
+        "file-read-error": "로그 파일을 읽을 수 없습니다.",
         "file-rotated": "로그 파일이 순환되었습니다",
         "date-placeholder": "시작일 - 종료일",
         "file-not-found": "로그 파일을 찾을 수 없음",
-        "unknown-error": "로그를 가져오는 중 알 수 없는 오류가 발생했습니다"
+        "file-parse-error": "파일을 처리할 수 없습니다. 잘못된 형식이거나 손상되었을 수 있습니다.",
+        "unknown-error": "로그를 가져오는 중 알 수 없는 오류가 발생했습니다",
+        "table": {
+          "ip": "IP Address",
+          "date": "날짜",
+          "message": "메시지"
+        }
       },
       "ssh": {
         "title": "SSH",
@@ -4233,55 +4634,55 @@
       }
     },
     "nginx": {
-      "title": "Настройки Nginx",
-      "index_files": "Индексные файлы",
-      "index_file_example": "Например: index.php index.html",
-      "static_files": "Типы статических файлов",
-      "static_files_desc": "Расширения файлов, которые NGINX должен обслуживать напрямую без передачи в backend. Используйте | для разделения, например: jpg|png|css|js.",
-      "expires": "Срок кэширования",
-      "expires_desc": "Определяет, как долго браузеры должны кэшировать статические файлы, обслуживаемые NGINX. Помогает улучшить время загрузки и снизить нагрузку на сервер.",
-      "additional_headers": "Дополнительные заголовки",
-      "additional_headers_desc": "Пользовательские HTTP-заголовки, добавляемые во все ответы NGINX. Полезно для безопасности, кэширования или настройки поведения.",
-      "cors_domains": "Дополнительные домены CORS",
-      "cors_domains_desc": "Список доменов, которым разрешено выполнять кросс-доменные запросы. Управляет заголовком Access-Control-Allow-Origin в ответах NGINX.",
-      "custom_nginx_config": "Пользовательская конфигурация Nginx",
-      "custom_config_desc": "Введите дополнительные директивы конфигурации Nginx.",
-      "save_success": "Настройки Nginx успешно сохранены!",
-      "save_error": "Не удалось сохранить настройки Nginx. Пожалуйста, попробуйте снова.",
-      "enter_key": "Введите ключ",
-      "enter_value": "Введите значение",
-      "add_button": "Добавить",
-      "invalid_header_key": "Неверное имя заголовка. Должно соответствовать формату HTTP-заголовка (например, Cache-Control, X-Frame-Options).",
-      "key_exists": "Такой ключ уже существует.",
-      "example": "Например: ",
-      "custom_config": "Пользовательская",
-      "default_template": "По умолчанию",
-      "block_top": "Перед закрывающей скобкой server",
-      "block_bottom": "В начале блока server",
-      "outer_top": "Снаружи блока server",
-      "days": "Дней",
-      "hours": "Часов",
-      "minutes": "Минут",
-      "seconds": "Секунд",
-      "weeks": "Недель",
-      "months": "Месяцев",
-      "no-headers": "дополнительные заголовки не добавлены",
-      "index_files_error": "Неверный формат — используйте имена файлов, разделённые пробелами, например index.html default.html.",
-      "global_index_files_error": "Неверный формат — используйте имена файлов, разделённые пробелами",
-      "use_only_alnum_pipe_example": "Используйте только буквы, цифры, подчёркивания, точки или дефисы, разделённые символом | (например, jpg|png|css|js).",
-      "use_only_alnum_pipe": "Используйте только буквы, цифры, подчёркивания, точки или дефисы, разделённые символом |.",
-      "invalid_domains_example": "Неверные домены — укажите корректные URL, разделённые пробелами, например https://example.com https://example2.com.",
-      "static_expiry_numeric": "Срок кэширования должен быть числом.",
-      "preview_config": "Предпросмотр конфигурации",
-      "available_variables": "Доступные переменные",
-      "default": "По умолчанию",
-      "custom": "Пользовательская",
-      "confirm_switch_custom": "Вы уверены, что хотите переключиться на пользовательскую настройку?",
-      "confirm_switch_default": "Вы уверены, что хотите переключиться на настройки по умолчанию?",
-      "confirm_unsaved_switch_default": "Вы уверены, что хотите отменить несохранённые изменения и переключиться на настройки по умолчанию?",
-      "confirm_unsaved_switch_custom": "Вы уверены, что хотите отменить несохранённые изменения и переключиться на пользовательскую настройку?",
-      "nginx-error-popup": "Упс, проверка конфигурации завершилась с ошибкой!",
-      "twig-templating-guide": "Руководство по шаблонам Twig"
+      "title": "Nginx 설정",
+      "index_files": "인덱스 파일",
+      "index_file_example": "예: index.php index.html",
+      "static_files": "정적 파일 유형",
+      "static_files_desc": "백엔드로 전달하지 않고 NGINX에서 직접 제공할 파일 확장자입니다. |로 유형을 구분하여 사용합니다. 예: jpg|png|css|js.",
+      "expires": "캐시 만료",
+      "expires_desc": "NGINX에서 제공하는 정적 파일을 브라우저가 캐시해야 하는 기간을 정의합니다. 로드 시간을 개선하고 서버 부하를 줄이는 데 도움이 됩니다.",
+      "additional_headers": "추가 헤더",
+      "additional_headers_desc": "모든 NGINX 응답에 추가할 사용자 정의 HTTP 헤더입니다. 보안, 캐싱 또는 사용자 정의 동작에 유용합니다.",
+      "cors_domains": "추가 CORS 도메인",
+      "cors_domains_desc": "교차 출처 요청을 허용하는 도메인 목록입니다. NGINX 응답의 Access-Control-Allow-Origin 헤더를 제어합니다.",
+      "custom_nginx_config": "사용자 정의 Nginx 구성",
+      "custom_config_desc": "Nginx 구성에 대한 추가 지시어를 입력합니다.",
+      "save_success": "Nginx 설정이 성공적으로 저장되었습니다!",
+      "save_error": "Nginx 설정 저장에 실패했습니다. 다시 시도해 주세요.",
+      "enter_key": "키 입력",
+      "enter_value": "값 입력",
+      "add_button": "추가",
+      "invalid_header_key": "유효하지 않은 헤더 이름입니다. 유효한 HTTP 헤더 형식이어야 합니다(예: Cache-Control, X-Frame-Options).",
+      "key_exists": "이 키는 이미 존재합니다.",
+      "example": "예: ",
+      "custom_config": "사용자 정의",
+      "default_template": "기본",
+      "block_top": "서버 블록 닫기 전",
+      "block_bottom": "서버 블록 내부 시작",
+      "outer_top": "서버 블록 외부",
+      "days": "일",
+      "hours": "시간",
+      "minutes": "분",
+      "seconds": "초",
+      "weeks": "주",
+      "months": "개월",
+      "no-headers": "추가된 헤더가 없습니다",
+      "index_files_error": "잘못된 형식 — 공백으로 구분된 파일 이름을 사용하세요. 예: index.html default.html.",
+      "global_index_files_error": "잘못된 형식 — 공백으로 구분된 파일 이름을 사용하세요.",
+      "use_only_alnum_pipe_example": "영숫자, 밑줄, 마침표 또는 하이픈 문자만 사용하고 |로 구분하세요(예: jpg|png|css|js).",
+      "use_only_alnum_pipe": "영숫자, 밑줄, 마침표 또는 하이픈 문자만 사용하고 |로 구분하세요.",
+      "invalid_domains_example": "잘못된 도메인 — 유효한 공백으로 구분된 URL을 제공하세요. 예: https://example.com https://example2.com.",
+      "static_expiry_numeric": "정적 만료는 숫자 값이어야 합니다.",
+      "preview_config": "미리보기 구성",
+      "available_variables": "사용 가능한 변수",
+      "default": "기본",
+      "custom": "사용자 정의",
+      "confirm_switch_custom": "사용자 정의로 전환하시겠습니까?",
+      "confirm_switch_default": "기본으로 전환하시겠습니까?",
+      "confirm_unsaved_switch_default": "저장되지 않은 변경 사항을 버리고 기본으로 전환하시겠습니까?",
+      "confirm_unsaved_switch_custom": "저장되지 않은 변경 사항을 버리고 사용자 정의로 전환하시겠습니까?",
+      "nginx-error-popup": "Oops, 구성 테스트에 실패했습니다!",
+      "twig-templating-guide": "Twig 템플릿 가이드"
     },
     "php": {
       "title": "PHP 설정",
@@ -4398,10 +4799,16 @@
         "dynamic": "다이나믹",
         "static": "스태틱"
       },
+      "dropdown": {
+        "text": "텍스트",
+        "boolean": "부울"
+      },
       "invalid_memory_limit": "잘못된 메모리 제한 형식입니다. 숫자 다음에 K, M 또는 G를 사용하세요 (예: 128M).",
       "invalid_post_max_size": "잘못된 post_max_size 형식입니다. 숫자 다음에 K, M 또는 G를 사용하세요 (예: 8M).",
       "invalid_upload_max_filesize": "잘못된 upload_max_filesize 형식입니다. 숫자 다음에 K, M 또는 G를 사용하세요 (예: 2M).",
-      "invalid_multiple_values": "유효하지 않은 값이 있습니다. 유효한 값을 사용하세요"
+      "invalid_multiple_values": "유효하지 않은 값이 있습니다. 유효한 값을 사용하세요",
+      "warning": "php/nginx 구성에 오류가 있어 구성이 로드되지 않았습니다. 웹사이트가 작동하지 않을 수 있습니다.",
+      "dialog-title": "문제가 발생했습니다. 구성 테스트에 실패했습니다!"
     }
   }
 }
